@@ -1,5 +1,5 @@
 $name : Radiohead
-$author : tgies
+$author : Stringalong
 $description : Generates Radiohead-style text.
 $button : Generate
 $amount : 5
