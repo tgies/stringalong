@@ -1,0 +1,248 @@
+$name : Patch Notes
+$author : Stringalong
+$description : Generates absurd fake patch notes for a game that doesn't exist.
+$button : Ship It
+$amount : 8
+$allow duplicates
+
+$entity
+player
+dragon
+NPC
+shopkeeper
+skeleton
+villager
+horse
+companion
+final boss
+tutorial ghost
+slime
+chicken
+door
+barrel
+physics engine
+camera
+inventory
+save file
+loading screen
+minimap
+quest marker
+ragdoll
+hitbox
+tooltip
+health bar
+main menu
+
+$object
+sword
+shield
+potion
+arrow
+key
+ladder
+torch
+bucket
+hat
+cheese
+boat
+chair
+wheel
+log
+boulder
+gold coin
+mushroom
+candle
+rope
+map
+fishing rod
+lantern
+pumpkin
+wedding ring
+tax document
+
+$place
+the overworld
+the tutorial area
+the final dungeon
+the pause menu
+the character creator
+the title screen
+the credits sequence
+the loading screen
+the inventory
+the minimap
+the settings menu
+a cutscene
+the water level
+the ice level
+the sewer level
+the casino
+the haunted mansion
+the tavern
+the throne room
+the shadow realm
+new game plus
+
+$adj
+invisible
+invincible
+on fire
+upside down
+enormous
+tiny
+hostile
+sentient
+backwards
+recursive
+cursed
+haunted
+radioactive
+transparent
+magnetic
+extremely polite
+passive-aggressive
+self-aware
+copyright-infringing
+unreasonably fast
+suspiciously calm
+slightly damp
+
+$action
+phase through walls
+duplicate infinitely
+become sentient
+achieve enlightenment
+file a tax return
+start a union
+open a restaurant
+declare independence
+gain admin privileges
+enter the void
+ascend to godhood
+ignore gravity
+break the fourth wall
+softlock the game
+crash the server
+delete the save file
+uninstall themselves
+enter the credits
+join the enemy team
+become a merchant
+fall through the floor
+teleport to the title screen
+rotate uncontrollably
+emit light
+vibrate intensely
+sing
+refuse to render
+multiply when hit
+
+$verb
+spawn
+despawn
+launch
+catapult
+delete
+duplicate
+rotate
+invert
+replace
+merge with
+absorb
+consume
+befriend
+marry
+challenge
+become
+transform into
+orbit
+haunt
+eat
+stack infinitely on top of
+phase through
+forget about
+fall in love with
+declare war on
+
+$when
+when the player is holding [a] [object]
+when viewed from a specific angle
+during a cutscene
+on Tuesdays
+when the music stops
+if the player hasn't saved recently
+when no one is looking
+during the final boss fight
+only in new game plus
+when the framerate drops below 30
+after exactly [10-999] hours of gameplay
+at midnight
+during character creation
+if the player reads the terms of service
+when standing on [a] [object]
+while the inventory is open
+when the player presses pause
+during the credits
+only in multiplayer
+while crouching
+if the player's name contains a vowel
+between 3 and 4 AM
+when it rains
+during a loading screen
+
+$fix prefix
+Fixed a bug
+Fixed an issue
+Fixed a rare bug
+Resolved an issue
+Addressed a long-standing bug
+Corrected a minor issue
+Finally fixed the bug
+Patched an exploit
+
+$fix
+[fix prefix] where [entity][s] would [action] [when].
+[fix prefix] where [entity][s] could [verb] [entity][s] [when].
+[fix prefix] where [object][s] would become [adj] [when].
+[fix prefix] where [place] would [become [adj]|crash the game|stop existing|loop infinitely] [when].
+[fix prefix] where [a] [adj] [entity] would [verb] [a] [object] [when].
+
+$balance
+[Entity][s] are no longer [adj] [when].
+Reduced the chance of [entity][s] [action,lower]ing by [5-95]%.
+[Entity][s] now deal [10-500]% [more|less] damage [when].
+[Object][s] can no longer be used to [action].
+[Entity] health [increased|decreased|randomized] by [5-500]%.
+The [entity] is no longer immune to [object][s].
+[Object][s] now stack up to [2-9999].
+[Entity][s] in [place] are now [adj] instead of [adj].
+
+$feature
+[Entity][s] can now [verb] [object][s].
+Added [1-47] new [object][s] to [place].
+[Entity][s] will now [react appropriately|panic|applaud|weep] when the player [action,lower][s].
+Players can now [verb] [entity][s] in [place].
+Added [a] [adj] [entity] to [place].
+[Entity][s] now have a [1-5]% chance to [action] when hit.
+[Place] now contains [a] [adj] [object].
+New quest: retrieve [a] [object] from [a] [adj] [entity].
+
+$known issue
+[Entity][s] may occasionally [action] — this is not a bug.
+[Place] is currently [adj] — we are investigating.
+We are aware that [entity][s] can [verb] [object][s] and have decided this is a feature.
+[Object][s] may appear [adj] [when] — fix coming in a future update.
+The [entity] in [place] is [adj] on purpose. Stop asking.
+
+$note type
+[fix]
+[fix]
+[balance]
+[feature]
+[known issue] {30%}
+
+$>patch note
+[note type]
+
+$>changelog
+<b>v[1-9].[0-30].[0-99] Patch Notes</b>[/][/][note type][/][note type][/][note type][/][note type][/][note type]
