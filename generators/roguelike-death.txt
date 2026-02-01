@@ -1,0 +1,311 @@
+$name : Roguelike Death
+$author : Stringalong
+$description : Generates absurd roguelike death messages and tombstone epitaphs.
+$button : Die
+$amount : 5
+$allow duplicates
+
+$lowly creature
+rat
+kobold
+bat
+newt
+jackal
+goblin
+grid bug
+gnome
+sewer rat
+cave spider
+floating eye
+acid blob
+lichen
+gas spore
+rot grub
+dust mite
+cave toad
+swamp leech
+
+$mid creature
+orc
+troll
+centaur
+ogre
+minotaur
+cockatrice
+rust monster
+owlbear
+gelatinous cube
+mimic
+wraith
+basilisk
+manticore
+ettin
+displacer beast
+carrion crawler
+shambling mound
+giant slug
+phase spider
+warg
+
+$big creature
+dragon
+lich
+beholder
+mind flayer
+balrog
+titan
+ancient wyrm
+death knight
+elder brain
+pit fiend
+storm giant
+demilich
+kraken
+tarrasque
+arch-devil
+
+$creature
+[lowly creature] {40%}
+[mid creature] {40%}
+[big creature] {20%}
+
+$unique creature
+Demogorgon
+Orcus
+Asmodeus
+Juiblex
+Yeenoghu
+Tiamat
+Vecna
+the Wizard of Yendor
+Vlad the Impaler
+Medusa
+Cthulhu
+the Rat King
+Grognak the Unfair
+
+$creature adj
+cursed
+invisible
+polymorphed
+sleeping
+confused
+hallucinatory
+skeletal
+giant
+mutant
+rabid
+flaming
+spectral
+teleporting
+vampiric
+poisonous
+dire
+elder
+quantum
+intelligent
+enraged
+
+$creature desc
+[creature adj] [creature]
+[creature]
+[creature]
+
+$place name
+Doom
+Despair
+Agony
+the Damned
+Eternal Sorrow
+Infinite Torment
+Mild Inconvenience
+Bad Decisions
+Questionable Choices
+Regret
+Inevitable Death
+Broken Dreams
+Lost Socks
+Excessive Hubris
+Diminishing Returns
+Unreasonable Difficulty
+Unfair Design
+Poor Planning
+Certain Death
+
+$place type
+Dungeon
+Crypt
+Tomb
+Caverns
+Mines
+Depths
+Abyss
+Labyrinth
+Sewers
+Vault
+Fortress
+Catacombs
+Temple
+Pit
+Spire
+Cellar
+Stronghold
+
+$dungeon
+the [place type] of [place name]
+
+$kill verb
+killed by
+slain by
+eaten by
+strangled by
+dissolved by
+petrified by
+poisoned by
+burned to death by
+crushed by
+swallowed whole by
+annihilated by {10%}
+destroyed by {10%}
+
+$trap
+a poison dart trap
+a falling boulder trap
+a pit trap
+a rolling boulder
+a squeaky board
+a spike trap
+a pool of acid
+a polymorph trap
+a teleport trap malfunction
+a land mine
+a fire trap
+a lightning trap
+
+$food
+partly eaten lichen
+tin of spinach
+lump of royal jelly
+tripe ration
+fortune cookie
+eucalyptus leaf
+candy bar
+food ration
+cream pie
+slime mold
+stale pancake
+rotten egg
+
+$self inflicted
+a wand of death (self-targeted)
+their own poisoned weapon
+a rebounding fireball
+an exploding bag of holding
+choking on [a] [food]
+kicking a wall too hard
+reading a cursed scroll of genocide
+praying to an angry god
+sitting on a throne
+drinking from a fountain
+trying to eat [a] [creature desc]
+falling downstairs
+starvation
+punching [a] [creature desc] to death with bare hands and then dying of the wounds {10%}
+
+$cause
+[kill verb] [a] [creature desc] {60%}
+[kill verb] [unique creature] {10%}
+killed by [trap] {20%}
+killed by [self inflicted] {20%}
+died of [self inflicted] {10%}
+
+$condition
+while helpless
+while paralyzed
+while confused
+while hallucinating
+while petrifying
+while on fire
+while praying
+while invisible
+while blind
+while levitating
+while polymorphed into [a] [lowly creature]
+while reading a spellbook
+while trying to remove cursed boots
+while fumbling with a lock
+while sitting
+while asleep
+while engulfed
+while stuck in a bear trap
+while overburdened
+on an empty stomach
+on a full moon
+after eating something questionable
+with [1-47] hit points remaining
+at experience level [1-14]
+in broad daylight
+in total darkness
+for no apparent reason
+without putting up a fight
+after [2-47] turns
+despite having a wand of wishing
+despite wearing a ring of protection
+despite several warnings
+after promising this would be the last run
+again
+
+$class
+Valkyrie
+Barbarian
+Wizard
+Rogue
+Ranger
+Monk
+Samurai
+Tourist
+Archaeologist
+Healer
+Knight
+Priest
+Caveperson
+Necromancer
+Bard
+
+$epitaph
+Much better luck next time
+A valiant effort
+So close
+R.I.P.
+They will be missed
+Should have ascended
+Shouldn't have gone downstairs
+Hubris
+Not like this
+An avoidable death
+Skill issue
+Maybe try an easier game
+Should have read the wiki
+Should have wished for a better weapon
+That was entirely preventable
+The RNG giveth and the RNG taketh away
+At least the food was good
+They died as they lived: confused
+It seemed like a good idea at the time
+Should have stayed on level 1
+
+$>death message
+[cause] on level [1-30] of [dungeon], [condition].
+[cause] on level [1-30] of [dungeon].
+[cause], [condition].
+
+$level line
+Level [1-14] [class]
+Level [1-14] [class] with [0-50000] gold
+
+$>tombstone
+[level line][/][cause][/]on level [1-30] of [dungeon],[/][condition].[/][/]"[epitaph]"
+
+$>mixed
+[death message]
+[tombstone] {15%}
