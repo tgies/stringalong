@@ -1,0 +1,453 @@
+$name : Radiohead
+$author : tgies
+$description : Generates Radiohead-style text.
+$button : Generate
+$amount : 5
+$allow duplicates
+
+$place
+glacier
+forest
+pyramid
+tower
+hotel
+bunker
+canyon
+desert
+corridor
+maze
+landscape
+ocean
+void
+tunnel
+basement
+rooftop
+skyline
+horizon
+ruin
+wasteland
+swimming pool
+mountain
+volcano
+city
+village
+junction
+furnace
+palace
+island
+prison
+castle
+church
+wood of suicides
+central park
+winter palace
+carpet land
+gin palace
+fantasy island
+cloud cuckoo land
+business district
+no man's land
+holiday inn
+hamptons
+
+$creature
+minotaur
+bear
+scarecrow
+ghost
+demon
+monster
+angel
+wolf
+insect
+crow
+albatross
+cockroach
+moth
+polar bear
+lobster
+snake
+spider
+clown
+puppet
+bear cub
+mongrel cat
+grim reaper
+easter bunny
+
+$object
+wire
+knife
+bomb
+bell
+handshake
+ladder
+mirror
+clock
+pill
+needle
+camera
+telephone
+television
+satellite
+radio
+helicopter
+siren
+bullet
+briefcase
+kalashnikov
+powerline
+door
+window
+button
+pin
+cage
+forceps
+rubber bullet
+soap
+scarecrow
+straw dog
+paper tiger
+
+$abstract
+amnesia
+collision
+conspiracy
+dream
+nightmare
+eclipse
+explosion
+failure
+panic
+silence
+static
+tremor
+vertigo
+paranoia
+hysteria
+oblivion
+nothing
+fear
+integrity
+permission
+success
+fantasy
+merger
+confusion
+genocide
+humiliation
+democracy
+oligarchy
+megalomania
+normalcy
+
+$adj
+burning
+frozen
+drowning
+floating
+bleeding
+broken
+hollow
+glaciated
+desolate
+electric
+golden
+acid
+nuclear
+invisible
+automated
+abandoned
+obsolete
+mutant
+nervous
+optimistic
+realistic
+insane
+residential
+underground
+subterranean
+red
+blue
+white
+happy
+twisted
+sobbing
+tearful
+drippy
+shaky
+scrappy
+dead
+lukewarm
+stolen
+unhinged
+genetically modified
+carbon-coloured
+bloated
+bent
+airbrushed
+unconditional
+
+$verb
+disappear {ing:disappearing}{past:disappeared}
+dissolve {ing:dissolving}{past:dissolved}
+collapse {ing:collapsing}{past:collapsed}
+drown {ing:drowning}{past:drowned}
+burn {ing:burning}{past:burned}
+fall {ing:falling}{past:fallen}
+sink {ing:sinking}{past:sunk}
+grind {ing:grinding}{past:ground}
+drift {ing:drifting}{past:drifted}
+crash {ing:crashing}{past:crashed}
+erase {ing:erasing}{past:erased}
+scatter {ing:scattering}{past:scattered}
+melt {ing:melting}{past:melted}
+decay {ing:decaying}{past:decayed}
+implode {ing:imploding}{past:imploded}
+suffocate {ing:suffocating}{past:suffocated}
+evaporate {ing:evaporating}{past:evaporated}
+surrender {ing:surrendering}{past:surrendered}
+skwirm {ing:skwirming}{past:skwirmed}
+bluff {ing:bluffing}{past:bluffed}
+
+$any noun
+[place]
+[creature]
+[object]
+[abstract]
+
+$phrase template
+[adj] [creature]
+[adj] [place]
+[creature] [verb,as ing]
+[any noun] & [any noun]
+[adj] [any noun] [verb,as ing]
+[creature][s] on [object][s]
+[creature] in the [place]
+[verb,as ing] [place]
+[any noun], [any noun], [any noun]
+[adj] [object], [adj] [any noun]
+[creature][s] [verb,as ing] like [object][s]
+how to [verb]
+nothing is [adj]
+[creature] interior decorator
+[adj] [creature][s] [verb,as ing] in the [place]
+[any noun] falling out of the sky
+[verb,as ing] in [abstract]
+just the [place] and the [creature]
+no [abstract] no [abstract]
+please can I [verb]
+lost in the [place]
+advice for [creature][s]
+[adj] [abstract] on [object][s]
+everything [verb,as past]
+[adj] [any noun] except on fire
+things [verb] apart
+watch the [place] [verb]
+[abstract] season
+target [place]
+[creature] [abstract] report
+[verb] before [abstract]
+
+$raw phrase
+a nice straight road with nothing coming
+concorde comes to pick everybody up
+nothing is not comprehensible
+built in fashion obsolescence
+optimistic auto suggestion
+snow evidence but on fire
+doors that open and shut
+negative trees firedance
+get out before saturday
+deconstructed amnesiac
+everything in its place
+facsimile transmission
+lullaby in the bunker
+this isnt happening
+a grin like roadkill
+hissing like piss
+things fall apart
+how to disappear
+no blood no mess
+ice age coming
+knives out
+morning bell
+dollars and cents
+citizen insane
+kid a
+idioteque
+in limbo
+care bears falling dead out of the sky
+birds falling out of the sky
+woods where no birds sing
+farmland is turning to dust
+people are frightened to leave their homes
+the toys all kill the grown-ups
+scrape me off the ceiling
+nowadays I get panicked that I have ceased to exist
+frozen to the spot as the flash bulbs erupt
+glints amongst the ice
+chaos on the streets
+dropping like flies
+everything washes over you like a shipwreck
+
+$>phrase
+[phrase template]
+[phrase template]
+[raw phrase] {40%}
+
+$httt action
+[verb,title] the [any noun,title]
+[verb,title] to the [place,title]
+[verb,title] and [verb,title] Again
+Don't [verb,title]
+Keep [verb,as ing,title]
+Let It [verb,title]
+Stop [verb,as ing,title]
+Start [verb,as ing,title]
+Try to [verb,title]
+[verb,title] While You Can
+[verb,title] the [creature,title][s]
+[verb,title] in the [place,title]
+[verb,title] for [abstract,title]
+Wait for the [any noun,title]
+Leave the [any noun,title]
+Bury the [any noun,title]
+Follow the [creature,title]
+
+$httt noun phrase
+The [adj,title] [any noun,title]
+[adj,title] [creature,title][s]
+[any noun,title] & [any noun,title]
+[adj,title] [place,title]
+The [creature,title]'s [any noun,title]
+[abstract,title] [object,title]
+[adj,title] [object,title][s]
+[any noun,title] on the [place,title]
+The Last [any noun,title]
+All the [adj,title] [creature,title][s]
+[creature,title] at the [place,title]
+A [adj,title] [any noun,title]
+[any noun,title] in [place,title]
+[adj,title] [abstract,title]
+
+$httt statement
+Your [any noun,title] Is [verb,as ing,title]
+The [any noun,title] Is [verb,as ing,title]
+We [verb,title] [any noun,title]
+No More [any noun,title]
+There Is No [any noun,title]
+I Can't [verb,title]
+They Won't [verb,title]
+Nobody [verb,title][s] Here
+All the [any noun,title] Is [verb,as past,title]
+This Is What You [verb,title]
+[any noun,title] Will [verb,title]
+Nothing Left to [verb,title]
+I Was a [adj,title] [creature,title]
+The [creature,title][s] Are [verb,as ing,title]
+You Said [verb,title]
+[abstract,title] Is [adj,title]
+
+$httt main
+[httt action]
+[httt noun phrase]
+[httt statement]
+
+$httt paren inner
+The [adj,title] [any noun,title] of [place,title]
+[any noun,title] Is [verb,as ing,title]
+No [any noun,title] No [any noun,title]
+Your [abstract,title] Is [adj,title]
+As [adj,title] as [any noun,title]
+[adj,title] [creature,title] Being [verb,as past,title]
+[abstract,title], [abstract,title] & [abstract,title]
+The [adj,title] [creature,title] of [place,title]
+It's [adj,title] in the [place,title]
+[any noun,title]. [any noun,title]. [any noun,title]
+For the [adj,title] [creature,title][s]
+[verb,title] Before You [verb,title]
+After the [any noun,title]
+[adj,title] [creature,title][s] in the [place,title]
+All [any noun,title] No [any noun,title]
+How to [verb,title] a [creature,title]
+The [abstract,title] of [adj,title] [creature,title][s]
+We Were [adj,title]
+[object,title][s] and [object,title][s]
+Or Just [verb,title]
+[creature,title][s] Don't [verb,title]
+Your [any noun,title] Is [adj,title]
+If You [verb,title]
+
+$>httt title
+[httt main]. ([httt paren inner].)
+
+// IN RAINBOWS FRAGMENTED TEXT
+// Per-character transform: most chars pass through, some get a separator after them
+$ir char sep
+
+ _
+/
+_
+ /
+
+$ir break
+[_]
+[_]
+[_]
+[_]
+[_][ir char sep]
+
+$ir phrase
+[adj] [creature]
+[adj] [place]
+[creature] in the [place]
+[any noun] and [any noun]
+how to [verb]
+nothing is [adj]
+[adj] [creature][s] in the [place]
+lost in the [place]
+[verb,as ing] in [abstract]
+just the [place] and the [creature]
+no [abstract] no [abstract]
+[any noun] falling out of the sky
+everything [verb,as past]
+watch the [place] [verb]
+[creature][s] [verb,as ing] like [object][s]
+please can I [verb]
+things [verb] apart
+advice for [creature][s]
+[adj] [any noun] except on fire
+
+$ir raw phrase
+a nice straight road with nothing coming
+everything in its place
+how to disappear completely
+birds falling out of the sky
+care bears falling dead out of the sky
+the toys all kill the grown ups
+nowadays I get panicked that I have ceased to exist
+frozen to the spot as the flash bulbs erupt
+chaos on the streets
+dropping like flies
+farmland is turning to dust
+people are frightened to leave their homes
+this isnt happening
+things fall apart
+no blood no mess
+ice age coming
+
+$ir source
+[ir phrase]
+[ir phrase]
+[ir phrase]
+[ir raw phrase] {40%}
+
+$>in rainbows
+[ir source,upper,each ir break]
+[ir source,upper,each ir break]
+
+$>mixed
+[phrase]
+[httt title]
+[in rainbows]

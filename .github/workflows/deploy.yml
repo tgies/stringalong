@@ -1,0 +1,43 @@
+name: Deploy to Pages
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate generators index
+        run: |
+          cd generators
+          echo "[" > index.json
+          first=true
+          for f in *.txt; do
+            # Extract $name from file, fallback to filename
+            name=$(grep -m1 '^\$name' "$f" | sed 's/^\$name[[:space:]]*:[[:space:]]*//' || echo "${f%.txt}")
+            [ -z "$name" ] && name="${f%.txt}"
+            $first || echo "," >> index.json
+            printf '  {"name": "%s", "file": "%s"}' "$name" "$f" >> index.json
+            first=false
+          done
+          echo "" >> index.json
+          echo "]" >> index.json
+          cat index.json
+
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

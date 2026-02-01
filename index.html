@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stringalong</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    :root {
+      --bg: #f5f5f5;
+      --surface: #fff;
+      --border: #222;
+      --accent: #e94560;
+      --yellow: #fbbf24;
+      --teal: #2dd4bf;
+      --text: #222;
+      --muted: #666;
+    }
+
+    body {
+      font: 15px/1.6 system-ui, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background: var(--bg) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="2" cy="2" r=".5" fill="%23ccc"/></svg>');
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .app {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0 20px;
+      border-bottom: 3px solid var(--border);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    header .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .panels {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 3px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel h2 {
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+
+    textarea {
+      flex: 1;
+      min-height: 320px;
+      background: var(--surface);
+      color: var(--text);
+      border: 2px solid var(--border);
+      padding: 10px;
+      font: 13px/1.5 'Consolas', monospace;
+      resize: vertical;
+      tab-size: 4;
+    }
+
+    textarea:focus {
+      outline: none;
+      box-shadow: 3px 3px 0 var(--accent);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--border);
+      box-shadow: 3px 3px 0 var(--border);
+      padding: 8px 20px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    button:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0 var(--border);
+    }
+
+    button:active {
+      transform: translate(3px, 3px);
+      box-shadow: none;
+    }
+
+    input,
+    select {
+      background: var(--surface);
+      color: var(--text);
+      border: 2px solid var(--border);
+      padding: 6px 10px;
+      font: inherit;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      box-shadow: 2px 2px 0 var(--yellow);
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    input[type=number] {
+      width: 60px;
+    }
+
+    .seed-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .seed-row input {
+      flex: 1;
+    }
+
+    .seed-row.hidden {
+      display: none;
+    }
+
+    .output {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      padding: 12px;
+      min-height: 180px;
+    }
+
+    .output .gen {
+      padding: 8px 0;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .output .gen:last-child {
+      border-bottom: none;
+    }
+
+    .output:empty::before {
+      content: 'Output will appear here.';
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .info-bar {
+      padding: 10px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .warn {
+      background: var(--yellow);
+      color: var(--text);
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 2px solid var(--border);
+      display: inline-block;
+      margin: 4px 4px 4px 0;
+    }
+
+    .error {
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 2px solid var(--border);
+      display: inline-block;
+    }
+
+    .url-loader {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .url-loader input {
+      width: 280px;
+      font-size: 13px;
+    }
+
+    .btn-small {
+      background: var(--teal);
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .btn-small:disabled {
+      opacity: 0.5;
+      cursor: wait;
+    }
+
+    @media (max-width: 700px) {
+      .url-loader {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .url-loader input {
+        flex: 1;
+        width: auto;
+      }
+    }
+
+    /* Documentation */
+    .docs {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 3px solid var(--border);
+    }
+
+    .docs>h2 {
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 20px;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .doc-card {
+      background: var(--surface);
+      border: 3px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
+      padding: 16px;
+    }
+
+    .doc-card h3 {
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .doc-card p {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .doc-card pre {
+      background: var(--bg);
+      border: 2px solid var(--border);
+      padding: 10px;
+      font: 12px/1.5 'Consolas', monospace;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+
+    .doc-card ul {
+      font-size: 13px;
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .doc-card li {
+      margin-bottom: 4px;
+    }
+
+    .doc-card code {
+      background: var(--yellow);
+      padding: 1px 5px;
+      font: 12px 'Consolas', monospace;
+      border: 1px solid var(--border);
+    }
+
+    .doc-card pre code {
+      background: none;
+      padding: 0;
+      border: none;
+    }
+
+    .credits {
+      margin-top: 30px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <h1>Stringalong</h1>
+      <span class="meta">Grammar-based random text generator — a <a href="https://github.com/tgies">tgies</a> creation
+        based on <a href="https://orteil.dashnet.org/randomgen/">Orteil's RandomGen</a></span>
+      <select id="generatorSelect"></select>
+      <div class="url-loader">
+        <input type="text" id="urlInput" placeholder="Load from URL (paste.rs, GitHub, etc.)">
+        <button id="loadUrlBtn" class="btn-small">Load</button>
+      </div>
+    </header>
+
+    <div class="panels">
+      <div class="panel">
+        <h2>Source</h2>
+        <textarea id="source" spellcheck="false"></textarea>
+      </div>
+
+      <div class="panel" style="gap: 8px;">
+        <h2>Output</h2>
+
+        <div class="seed-row hidden" id="seedRow">
+          <label>Seed:</label>
+          <input type="text" id="seed" placeholder="Enter seed text..." maxlength="200">
+        </div>
+
+        <div class="controls">
+          <button id="genBtn">Generate</button>
+          <label>Count <input type="number" id="count" value="1" min="1" max="50"></label>
+          <label>Root <select id="root"></select></label>
+        </div>
+
+        <div class="info-bar" id="info"></div>
+        <div id="warnings"></div>
+        <div class="output" id="output"></div>
+      </div>
+    </div>
+
+    <!-- DSL Documentation -->
+    <section class="docs">
+      <h2>DSL Reference</h2>
+
+      <div class="doc-grid">
+        <article class="doc-card">
+          <h3>Metadata</h3>
+          <p>Lines starting with <code>$</code> set generator options:</p>
+          <pre>$name : My Generator
+$author : Your Name
+$description : What it does
+$picture : url/to/image
+$button : Roll!
+$amount : 5
+$seed text : Enter a name:</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>Directives</h3>
+          <p>Special commands:</p>
+          <pre>$force unique     prevent repeats
+$allow duplicates allow repeats
+$all roots        all lists in dropdown
+$include file.txt load external file</pre>
+          <p>Comments: <code>//</code> line, <code>/* block */</code>, <code>$[note]</code></p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Lists</h3>
+          <p>Define lists with <code>$listname</code>. Lines after become items:</p>
+          <pre>$color
+red
+blue
+green</pre>
+          <ul>
+            <li><code>$list &gt;</code> — mark as root (UI dropdown)</li>
+            <li><code>$+list</code> — append to existing list</li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <h3>Item Attributes</h3>
+          <p>Items can have metadata in <code>{}</code> at end:</p>
+          <pre>$pet
+cat {plural:cats}{sound:meow}
+dog {plural:dogs}{sound:woof}
+unicorn {5%}{sound:neigh}</pre>
+          <ul>
+            <li><code>{50%}</code> — 50% chance weight</li>
+            <li><code>{key:value}</code> — named attribute</li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <h3>Basic Tags</h3>
+          <p>Tags expand content using <code>[]</code> brackets:</p>
+          <pre>[color]         pick from $color
+[a|b|c]         inline random choice
+[1-100]         random integer
+[-50-50]        negative ranges ok
+[/]             line break (&lt;br&gt;)
+[ ]             literal space</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>Variables</h3>
+          <p>Store and recall values with <code>#id</code>:</p>
+          <pre>[pet, #p]       store pick as 'p'
+[#p]            recall stored value
+[#p, as sound]  get attribute
+[#x, or ???]    fallback if missing
+[*CLEAR*]       clear all stored IDs</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>Attribute Access</h3>
+          <p>Use <code>as</code> to get item attributes:</p>
+          <pre>[pet, #p, as sound]  get sound attr
+[#p, as plural]      from stored item
+[#p, as #key]        dynamic attr name
+[thing, as x, or ?]  with fallback</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>Repeat Modifier</h3>
+          <p>Repeat expansion with <code>x</code>:</p>
+          <pre>[word, x3]      repeat 3 times
+[word, x2-5]    repeat 2-5 times
+[a|b|c, x4]     4 random choices</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>Casing Modifiers</h3>
+          <p>Control text capitalization:</p>
+          <pre>[list, title]   Title Case
+[list, upper]   UPPERCASE
+[list, lower]   lowercase</pre>
+          <p>Auto-matching: if tag is capitalized, output matches. <code>[Color]</code> → <code>Red</code></p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Uniqueness</h3>
+          <p>Control repeat prevention per-pick:</p>
+          <pre>[list, unique]  force unique pick
+[list, mundane] allow repeats</pre>
+          <p>Global default set by <code>$force unique</code> / <code>$allow duplicates</code>.</p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Text Processing</h3>
+          <p>Slice and compress text:</p>
+          <pre>[word, first part]   first third
+[word, middle part]  middle third
+[word, last part]    last third
+[word, compress]     remove spaces
+[word, hidden]       evaluate, output ""</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>Written Modifier</h3>
+          <p>Store final string instead of item object:</p>
+          <pre>[pet, #p, written]</pre>
+          <p>Useful when you need the rendered text including casing, not the raw item for later attribute access.</p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Template Params</h3>
+          <p>Pass values into templates with <code>%n</code>:</p>
+          <pre>$greet
+Hello, %1! You have %2 coins.
+
+$output &gt;
+[greet, %Alice, %100]</pre>
+          <p>→ "Hello, Alice! You have 100 coins."</p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Each (Iteration)</h3>
+          <p>Process text character-by-character:</p>
+          <pre>$sep
+ _
+/
+
+$glitch
+[_]
+[_]
+[_][sep]
+
+$output &gt;
+[word, upper, each glitch]</pre>
+          <p>Each char is set as the <code>[_]</code> list, then the target list is evaluated. Use to build per-character effects like text fragmentation.</p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Smart Grammar</h3>
+          <p>Automatic a/an and pluralization:</p>
+          <pre>[a] cat       → "a cat"
+[an] apple    → "an apple"
+[a] [animal]  → "a dog" or "an owl"
+cat[s]        → "cats"
+[pet][s]      → "dogs"</pre>
+          <p>Case-aware: <code>[A]</code> → <code>A</code>/<code>An</code></p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Special Tags</h3>
+          <p>Built-in meta references:</p>
+          <pre>[seed]          current seed value
+[game's name]   $name value
+[author's name] $author value</pre>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script src="lib/stringalong.js"></script>
+  <script>
+    const $ = id => document.getElementById(id);
+    const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+
+    const SAFE_TAGS = new Set(['b', 'i', 'u', 'q', 'p', 'small', 'big', 'center', 'h1', 'h2', 'h3', 'br']);
+    function sanitize(str) {
+      // Temporarily protect allowed tags, escape everything else, restore
+      const ph = {};
+      let n = 0;
+      str = str.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, (m, tag) => {
+        if (SAFE_TAGS.has(tag.toLowerCase())) { const k = `\x00${n++}\x00`; ph[k] = m; return k; }
+        return m;
+      });
+      str = esc(str);
+      for (const [k, v] of Object.entries(ph)) str = str.replace(k, v);
+      return str;
+    }
+
+    let gen = null;
+    let debounce = null;
+
+    function rebuild() {
+      const warnings = [];
+      try {
+        gen = new Stringalong($('source').value, {
+          onWarn: msg => warnings.push(msg)
+        });
+      } catch (e) {
+        $('output').innerHTML = `<div class="error">${esc(e.message)}</div>`;
+        return;
+      }
+
+      // Update UI from metadata
+      $('genBtn').textContent = gen.meta.button || 'Generate';
+      const roots = gen.getRoots();
+      $('root').innerHTML = roots.map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join('');
+      if (roots.length) $('root').value = roots.at(-1);
+      $('count').value = gen.meta.amount;
+
+      const seedRow = $('seedRow');
+      if (gen.meta.seedText) {
+        seedRow.classList.remove('hidden');
+        seedRow.querySelector('label').textContent = gen.meta.seedText;
+      } else {
+        seedRow.classList.add('hidden');
+      }
+
+      const parts = [`<b>${sanitize(gen.meta.name)}</b> by ${sanitize(gen.meta.author)}`];
+      if (gen.meta.description) parts.push(sanitize(gen.meta.description));
+      $('info').innerHTML = parts.join(' — ');
+
+      doGenerate();
+    }
+
+    function doGenerate() {
+      if (!gen) return;
+      const warnings = [];
+      gen.onWarn = msg => warnings.push(msg);
+
+      const seedInput = $('seed').value.trim();
+      const seed = gen.meta.seedText
+        ? (seedInput || null)
+        : ($('seed').value.trim() || null); // use null for unseeded
+
+      if (gen.meta.seedText && !seedInput) {
+        $('output').innerHTML = '';
+        return;
+      }
+
+      try {
+        const results = gen.generate({
+          count: parseInt($('count').value) || 1,
+          seed: seed,
+          root: $('root').value || undefined
+        });
+        $('output').innerHTML = results
+          .map(r => `<div class="gen">${sanitize(r)}</div>`)
+          .join('');
+      } catch (e) {
+        $('output').innerHTML = `<div class="error">${esc(e.message)}</div>`;
+      }
+
+      $('warnings').innerHTML = warnings.length
+        ? warnings.map(w => `<div class="warn">${esc(w)}</div>`).join('')
+        : '';
+    }
+
+    // Wire up events
+    $('genBtn').addEventListener('click', doGenerate);
+    $('root').addEventListener('change', doGenerate);
+    $('count').addEventListener('change', doGenerate);
+    $('seed').addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(doGenerate, 250);
+    });
+    $('source').addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(rebuild, 500);
+    });
+
+    // --- URL Loading ---
+    const CORS_PROXIES = [
+      url => url, // Try direct first
+      url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      url => `https://corsproxy.io/?${encodeURIComponent(url)}`
+    ];
+
+    async function fetchWithCorsProxy(url) {
+      for (const makeUrl of CORS_PROXIES) {
+        try {
+          const res = await fetch(makeUrl(url), { signal: AbortSignal.timeout(8000) });
+          if (res.ok) {
+            const text = await res.text();
+            // Basic sanity check - should have at least one $ directive
+            if (text.includes('$')) return text;
+          }
+        } catch (e) {
+          // Try next proxy
+        }
+      }
+      throw new Error('Could not fetch generator. Check the URL or try a different host.');
+    }
+
+    async function loadFromUrl(url) {
+      const btn = $('loadUrlBtn');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = '...';
+      $('warnings').innerHTML = '';
+
+      try {
+        const source = await fetchWithCorsProxy(url);
+        $('source').value = source;
+        rebuild();
+
+        // Update URL bar without reload (for sharing)
+        const shareUrl = new URL(window.location);
+        shareUrl.searchParams.set('url', url);
+        history.replaceState(null, '', shareUrl);
+      } catch (e) {
+        $('warnings').innerHTML = `<div class="error">${esc(e.message)}</div>`;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    }
+
+    $('loadUrlBtn').addEventListener('click', () => {
+      const url = $('urlInput').value.trim();
+      if (url) loadFromUrl(url);
+    });
+
+    $('urlInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const url = $('urlInput').value.trim();
+        if (url) loadFromUrl(url);
+      }
+    });
+
+    // --- Generator Index ---
+    async function loadGeneratorFromPath(path) {
+      try {
+        const res = await fetch(path);
+        if (res.ok) {
+          $('source').value = await res.text();
+          // Clear URL param when switching generators
+          const shareUrl = new URL(window.location);
+          shareUrl.searchParams.delete('url');
+          history.replaceState(null, '', shareUrl);
+          rebuild();
+        }
+      } catch (e) {
+        $('warnings').innerHTML = `<div class="error">${esc(e.message)}</div>`;
+      }
+    }
+
+    async function loadGeneratorIndex() {
+      const select = $('generatorSelect');
+      try {
+        const res = await fetch('generators/index.json');
+        if (res.ok) {
+          const list = await res.json();
+          list.forEach(({ name, file }) => {
+            const opt = document.createElement('option');
+            opt.value = `generators/${file}`;
+            opt.textContent = name;
+            select.appendChild(opt);
+          });
+          return list.length > 0 ? `generators/${list[0].file}` : null;
+        }
+      } catch (e) {
+        // index.json not available (local dev) - add fallback
+      }
+      // Fallback: add radiohead manually
+      const opt = document.createElement('option');
+      opt.value = 'generators/radiohead.txt';
+      opt.textContent = 'Radiohead Album Titles';
+      select.appendChild(opt);
+      return 'generators/radiohead.txt';
+    }
+
+    $('generatorSelect').addEventListener('change', e => {
+      if (e.target.value) loadGeneratorFromPath(e.target.value);
+    });
+
+    // Boot
+    (async function boot() {
+      const params = new URLSearchParams(window.location.search);
+      const urlParam = params.get('url');
+      const defaultPath = await loadGeneratorIndex();
+
+      if (urlParam) {
+        $('urlInput').value = urlParam;
+        await loadFromUrl(urlParam);
+      } else if (defaultPath) {
+        $('generatorSelect').value = defaultPath;
+        await loadGeneratorFromPath(defaultPath);
+      } else {
+        rebuild();
+      }
+    })();
+  </script>
+</body>
+
+</html>
