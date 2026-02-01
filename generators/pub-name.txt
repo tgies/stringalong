@@ -1,0 +1,238 @@
+$name : British Pub Names
+$author : Stringalong
+$description : Generates names for pubs that might exist somewhere in the British Isles.
+$button : let's 'ave a pint then
+$amount : 8
+$allow duplicates
+
+$animal
+Lion
+Eagle
+Swan
+Bear
+Fox
+Hare
+Stag
+Boar
+Bull
+Badger
+Hawk
+Otter
+Raven
+Hound
+Lamb
+Crane
+Hart
+Mare
+Ram
+Cock
+Pheasant
+Hen
+Salmon
+Pike
+Griffin
+
+$color
+Red
+White
+Black
+Golden
+Blue
+Green
+Grey
+Silver
+Rose
+Copper
+Iron
+
+$royal
+King
+Queen
+Prince
+Duke
+Earl
+Bishop
+Knight
+Monarch
+Lord
+Lady
+Baron
+Squire
+
+$royal name
+George
+Henry
+Edward
+William
+James
+Charles
+Arthur
+Alfred
+Richard
+Victoria
+Elizabeth
+Anne
+Mary
+Margaret
+Eleanor
+
+$person
+Ploughman
+Farmer
+Blacksmith
+Miller
+Baker
+Butcher
+Cooper
+Mason
+Drover
+Tinker
+Poacher
+Smuggler
+Hangman
+Navigator
+Admiral
+Pilgrim
+Piper
+Fiddler
+Shepherd
+Huntsman
+
+$nature
+Oak
+Elm
+Holly
+Ivy
+Willow
+Thorn
+Rose
+Ash
+Briar
+Hawthorn
+Yew
+Rowan
+Heather
+Thistle
+Clover
+Acorn
+Barley
+Wheat
+Hop
+
+$object
+Crown
+Anchor
+Bell
+Cross
+Castle
+Keys
+Sword
+Trumpet
+Barrel
+Horseshoe
+Plough
+Compass
+Anvil
+Hammer
+Wagon
+Lantern
+Ship
+Helm
+Cannon
+Arrow
+Cup
+Flag
+Chain
+Dial
+Gate
+
+$number
+Two
+Three
+Four
+Five
+Six
+Seven
+Eight
+Nine
+
+$body part
+Head
+Arms
+Legs
+Hand
+
+$adj
+Old
+Olde
+Crooked
+Jolly
+Merry
+Weary
+Blind
+Lame
+Rusty
+Quiet
+Drunken
+Lucky
+Honest
+Faithful
+Wicked
+Humble
+Proud
+Ancient
+Lost
+Wandering
+Tipsy
+Royal
+
+$place
+Corner
+End
+Bottom
+Top
+Bridge
+Cross
+Green
+Gate
+Lane
+Marsh
+Heath
+Down
+Hill
+Ley
+
+$the
+The {90%}
+Ye Olde
+
+$classic
+[the] [color] [animal]
+[the] [royal]'s [body part]
+[the] [royal]'s [animal]
+[the] [animal] [&|and] [animal]
+[the] [animal] [&|and] [object]
+[the] [color] [object]
+[the] [object] [&|and] [animal]
+[the] [number] [animal][s]
+[the] [number] [object][s]
+[the] [nature] [&|and] [animal]
+
+$named
+[the] [royal] [royal name]
+[the] [adj] [person]
+[the] [person]'s [body part]
+[the] [person]'s [animal]
+[the] [adj] [animal]
+[the] [adj] [person]
+
+$placey
+[the] [animal] at [the,title] [place]
+[the] [object] [&|and] [place]
+[the] [place] [animal]
+[the] [nature] [place]
+
+$>pub name
+[classic] {50%}
+[named] {30%}
+[placey] {20%}

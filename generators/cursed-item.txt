@@ -1,0 +1,245 @@
+$name : Cursed Items
+$author : Stringalong
+$description : Generates cursed, dubious, and mildly inconvenient RPG items.
+$button : Loot
+$amount : 5
+$allow duplicates
+
+$weapon base
+Sword
+Dagger
+Axe
+Mace
+Staff
+Bow
+Spear
+Hammer
+Scythe
+Flail
+Whip
+Crossbow
+Halberd
+Trident
+Sling
+Club
+Rapier
+Greatsword
+Wand
+Katana
+
+$armor base
+Shield
+Helm
+Boots
+Gauntlets
+Breastplate
+Cloak
+Robe
+Crown
+Belt
+Amulet
+Ring
+Pauldrons
+Greaves
+Bracers
+Circlet
+
+$misc base
+Lantern
+Tome
+Scroll
+Potion
+Bag
+Mirror
+Compass
+Hourglass
+Chalice
+Orb
+Coin
+Locket
+Candle
+Bell
+Flute
+Mask
+Dice
+Quill
+Spoon
+Sock
+Doorknob
+
+$item base
+[weapon base]
+[armor base]
+[misc base]
+
+$title adj
+Forgotten
+Accursed
+Dubious
+Regrettable
+Disappointing
+Adequate
+Mediocre
+Suspicious
+Haunted
+Soggy
+Lukewarm
+Discount
+Borrowed
+Counterfeit
+Refurbished
+Unnecessary
+Problematic
+Ironic
+Bureaucratic
+Passive-Aggressive
+Procrastinating
+Slightly Damp
+Off-Brand
+Secondhand
+Recursive
+Tax-Exempt
+Sentient
+Anxious
+Overqualified
+Redundant
+Existential
+
+$title noun
+Regret
+Mild Inconvenience
+Moderate Discomfort
+Slight Concern
+Bureaucracy
+Indecision
+Overtime
+Hindsight
+Awkward Silence
+Second Thoughts
+Mixed Signals
+Diminishing Returns
+Plausible Deniability
+Vague Unease
+Unreturned Calls
+Missed Deadlines
+Quiet Desperation
+Polite Disagreement
+Unclear Instructions
+Unfiled Paperwork
+Poor Choices
+Monday Mornings
+Inevitable Compromise
+Reasonable Doubt
+Technically Legal
+
+$item name
+[title adj] [item base] of [title noun]
+[item base] of [title noun]
+The [title adj] [item base]
+
+$stat name
+Attack
+Defense
+Speed
+Luck
+Charisma
+Intelligence
+Wisdom
+Dexterity
+Constitution
+Stealth
+Morale
+Confidence
+Self-Esteem
+Credibility
+Dignity
+
+$stat line
+[stat name] [+|-][1-15]
+[stat name] [+|-][1-15], [stat name] [+|-][1-15]
+
+$on trigger
+On hit
+On equip
+On use
+When dropped
+While held
+On critical hit
+When unequipped
+At dawn
+At dusk
+On death
+When examined
+In combat
+Out of combat
+Passively
+Once per day
+When nobody is watching
+
+$mundane effect
+target becomes slightly aware of their own breathing
+user forgets one recipe they used to know
+the nearest door opens slightly
+a distant bell rings for no reason
+all nearby torches flicker
+user briefly remembers an embarrassing thing they did [2-15] years ago
+gravity reverses for exactly one second
+user's shoes become untied
+the nearest NPC sighs audibly
+a small bird appears, judges you, and leaves
+user's inventory sorts itself alphabetically
+all nearby text becomes italic for [2-30] seconds
+target loses the ability to whistle for [1-24] hours
+user becomes convinced they left the oven on
+a review of your performance appears: "[adequate|needs improvement|see me after class|technically not the worst]"
+everyone in a [10-50] foot radius yawns
+user gains a sudden urge to organize their inventory
+target's hat rotates [15-180] degrees
+the nearest chair becomes slightly uncomfortable
+user temporarily forgets what they were doing
+all nearby coins land on their edge
+user hears faint elevator music for [5-60] seconds
+target develops a mild allergy to the weapon that hit them
+the item whispers "[you could be doing better|have you considered a different career|that was adequate|I've seen worse]"
+user's map rotates [90-270] degrees
+nothing happens, but in a threatening way
+
+$powerful effect
+user switches places with target
+all enemies in the room become furniture for [1-10] rounds
+user is replaced by a slightly better version of themselves
+target is polymorphed into a more confident version of themselves
+the nearest wall becomes a door, but only once
+user gains the ability to read, but loses the ability to write
+all damage is converted to strongly worded letters
+target is banished to a parallel universe where everything is the same but slightly worse
+user learns the true name of the nearest object (it's always "Gerald")
+gravity becomes a suggestion for [1-6] rounds
+time reverses [2-10] seconds but nobody notices
+user splits into [2-4] copies who disagree about everything
+the encounter is resolved via a [brief|lengthy|extremely awkward] committee meeting
+the dungeon's difficulty rating is [increased|decreased] by one star
+
+$effect line
+[on trigger]: [mundane effect].
+[on trigger]: [powerful effect]. {20%}
+
+$flavor
+"It's not cursed, it's just differently enchanted."
+"Found in a barrel that was clearly labeled 'do not open.'"
+"Previous owner not available for comment."
+"Comes with [a] [1-30]-day return policy (void if used)."
+"Smells faintly of [regret|cinnamon|ozone|ambition|Tuesday]."
+"Hums quietly when no one is paying attention."
+"Warranty void in all known planes of existence."
+"Technically legal in most jurisdictions."
+"Best not to ask where this came from."
+"The enchantment was applied by a wizard who was 'going through some stuff.'"
+"Instructions included but written in a dead language."
+"Part of a set. The rest of the set is also cursed."
+"Glows in the dark. This is the least concerning thing about it."
+"Has been returned to this shop [3-12] times."
+"The previous owner ascended. Not in a good way."
+
+$>cursed item
+<b>[item name]</b>[/][stat line][/][effect line][/][effect line][/]<small>[flavor]</small>
