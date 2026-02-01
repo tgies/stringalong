@@ -1,0 +1,185 @@
+$name : Kid Says
+$author : Stringalong
+$all roots
+$description : Generates things a small child urgently needs to tell you right now.
+$button : I HAVE TO TELL YOU SOMETHING
+
+$age
+[baby|mommy|old]
+
+$status
+lonely
+lost
+crazy
+sick
+[inanimate adj]
+
+$evil
+evil
+bad
+zombie
+
+$disposition
+nice
+mad
+mean
+friendly
+angry
+
+$inanimate adj
+giant
+big
+scary
+diamond
+[color] {30%}
+
+$brand
+[video game]
+
+$video game
+Mario
+Minecraft
+Pokémon
+Sonic
+Roblox
+Zelda
+
+$class
+attack
+doctor
+parent
+monster {10%}
+
+$species
+[bird]
+bunny {60%}
+cat {70%}
+witch {20%}
+villager {10%}
+spider {30%}
+skeleton {30%}
+goblin {20%}
+hedgehog {5%}
+mouse {8%}
+panda {7%}
+dragon {10%}
+robot {10%}
+mermaid {8%}
+dinosaur {8%}
+fairy {10%}
+
+$bird
+chicken
+goose
+penguin
+bird
+owl {80%}
+duck {50%}
+
+$structure
+airplane
+car
+house
+castle {40%}
+spaceship {20%}
+boat {30%}
+
+$location
+the nether
+a big fire
+a cemetery {80%}
+a bad storm
+a [|[inanimate adj]] haunted house
+a goblin camp
+the volcano {60%}
+the ocean {50%}
+a cave {60%}
+the moon {30%}
+[an] [structure]
+[an] [inanimate adj] [|[species]] [structure]
+school
+a [species] school
+the house {50%}
+the kitchen {50%}
+the backyard {50%}
+the basement {40%}
+a tower {60%}
+
+$color
+blue
+yellow
+pink
+white
+black
+red
+purple {40%}
+green {40%}
+
+$intro
+Now there's {50%}
+[|Um,] I think I'm [|acting like] {50%}
+I'm pretending to be
+I made
+This is
+You have to draw
+[|I think] I feel like [|being] {50%}
+I made a book of {10%}
+I don't know how to draw {10%}
+
+$whois action
+[disposition]
+[status]
+acting like [character]
+pretending to be [character]
+trick or treating
+fighting [character]
+getting attacked by [character]
+looking for [countable]
+being chased by [character]
+scared of [character] {40%}
+trying to find its [mom|baby|friend|home] {40%}
+
+$situation
+[character]
+[character] with a [tool]
+[character] who is [whois action] {50%}
+[character] looking for [character] {20%}
+[character] who is [whois action] in [location] {50%}
+[character] that died {8%}
+
+$countable
+[|baby chicken|zombie|cat] eggs
+lava
+tomatoes
+seeds
+crystals {50%}
+
+$tool
+[|[inanimate adj]] [|[inanimate adj]] [shovel|pickaxe|sword|bow and arrow|magic wand|egg|baby chicken egg]
+Nintendo Switch {8%}
+
+$character
+[an] [|[disposition]] gardener {15%}
+Peter Rabbit {6%}
+a zombie {20%}
+a goose {20%}
+Mario {10%}
+Luigi {10%}
+Pikachu {10%}
+Bowser {8%}
+Link {10%}
+Zelda {10%}
+Sonic {8%}
+Kirby {6%}
+a princess {10%}
+[an] [|[status]] [|[disposition]] [|[evil]] [|[age]] [|[brand]] [|[class]] [species]
+[an] [|[status]] [|[disposition]] [|[evil]] [|[age]] [|[brand]] [|[class]] [species][| [structure]] {33%}
+
+$utterance
+[Intro] [situation].
+No, not [situation]! It's just [situation]! {8%}
+I need you to make [situation] right now. {8%}
+You have to be [character] and I will be [situation]. {9%}
+[|I think ]I need [|more|three|a million of] [countable]. {9%}
+You have to give me [[an] [tool]|[countable]][| for my [species][| because it's [[disposition]|[status]]| or it will get [[disposition]|[status]]]]. {9%}
+[Character] who I'm acting like is [whois action][| because [there's [situation]|it's [[disposition]|[status]]]]. {9%}
