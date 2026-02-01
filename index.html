@@ -42,13 +42,17 @@
     }
 
     header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       padding: 12px 0 20px;
       border-bottom: 3px solid var(--border);
       margin-bottom: 20px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
       flex-wrap: wrap;
+      margin-bottom: 14px;
     }
 
     header h1 {
@@ -60,6 +64,13 @@
     header .meta {
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .header-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .panels {
@@ -230,7 +241,6 @@
     .url-loader {
       display: flex;
       gap: 8px;
-      margin-left: auto;
     }
 
     .url-loader input {
@@ -347,13 +357,17 @@
 <body>
   <div class="app">
     <header>
-      <h1>Stringalong</h1>
-      <span class="meta">Grammar-based random text generator — a <a href="https://github.com/tgies">tgies</a> creation
-        based on <a href="https://orteil.dashnet.org/randomgen/">Orteil's RandomGen</a></span>
-      <select id="generatorSelect"></select>
-      <div class="url-loader">
-        <input type="text" id="urlInput" placeholder="Load from URL (paste.rs, GitHub, etc.)">
-        <button id="loadUrlBtn" class="btn-small">Load</button>
+      <div class="header-top">
+        <h1>Stringalong</h1>
+        <span class="meta">Grammar-based random text generator — a <a href="https://github.com/tgies">tgies</a> creation
+          based on <a href="https://orteil.dashnet.org/randomgen/">Orteil's RandomGen</a></span>
+      </div>
+      <div class="header-toolbar">
+        <select id="generatorSelect"></select>
+        <div class="url-loader">
+          <input type="text" id="urlInput" placeholder="Load from URL (paste.rs, GitHub, etc.)">
+          <button id="loadUrlBtn" class="btn-small">Load</button>
+        </div>
       </div>
     </header>
 
@@ -533,7 +547,8 @@ $glitch
 
 $output &gt;
 [word, upper, each glitch]</pre>
-          <p>Each char is set as the <code>[_]</code> list, then the target list is evaluated. Use to build per-character effects like text fragmentation.</p>
+          <p>Each char is set as the <code>[_]</code> list, then the target list is evaluated. Use to build
+            per-character effects like text fragmentation.</p>
         </article>
 
         <article class="doc-card">
