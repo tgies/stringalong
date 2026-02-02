@@ -1,0 +1,486 @@
+$name : LinkedIn Thought Leader
+$author : Stringalong
+$description : Generates inspirational LinkedIn posts from people who need to log off.
+$button : Post
+$amount : 1
+$allow duplicates
+
+$emoji
+🚀
+💡
+🔥
+💪
+🙏
+✨
+👏
+📈
+🎯
+💎
+⚡
+🧠
+❤️
+👀
+😤
+🤯
+💰
+🏆
+☕
+🫡
+🧵
+👇
+🐺
+
+$time
+[2-30] years ago
+last week
+yesterday
+this morning
+in 2008
+in college
+at my first job
+before I dropped out
+when I was broke
+on a Tuesday
+at 3 AM
+at a networking event
+during a layoff
+on my first day as CEO
+right before I got fired
+
+$person
+a stranger
+my Uber driver
+a homeless man
+a 5-year-old
+my intern
+a janitor
+a monk
+my barista
+a billionaire
+a fortune cookie
+my therapist
+my grandma
+a LinkedIn recruiter
+a rejected candidate
+a CEO I met at Davos
+Gary Vee
+Elon
+my ex-wife's new husband
+a cashier at Whole Foods
+a taxi driver in Mumbai
+my [3-8]-year-old daughter
+a Navy SEAL
+a failed startup founder
+my Lyft driver
+the security guard at my old office
+
+$said verb
+said something to me
+told me something
+looked me in the eye and said something
+whispered something to me
+asked me a question
+handed me a napkin with a note
+stopped me on the street
+sent me a DM
+interrupted my keynote
+fired me, but then said
+grabbed my arm and said
+
+$profound thing
+"The best time to start was yesterday."
+"You're not lazy. You're just afraid."
+"Nobody cares about your degree."
+"Revenue is a vanity metric."
+"Culture eats strategy for breakfast."
+"The hustle never sleeps."
+"Your network is your net worth."
+"Be the disruption."
+"Comfort is the enemy of growth."
+"You miss 100% of the shots you don't take."
+"Stop asking for permission."
+"The algorithm rewards authenticity."
+"Failure is just a pivot in disguise."
+"You don't need a plan. You need a bias for action."
+"Content is king, but distribution is queen."
+"If you are the smartest person in the room, you are in the wrong room."
+"Don't chase money. Chase problems."
+"Skills > Degrees."
+"Hire for attitude. Train for skill."
+"A salary is the drug they give you to forget your dreams."
+"They told me I was crazy. I told them they were boring."
+"Your comfort zone is your coffin."
+"Nobody is coming to save you."
+"The market doesn't care about your feelings."
+"Done is better than perfect."
+
+$job action
+fired my entire team
+quit my six-figure job
+slept in my car for a month
+posted on LinkedIn every single day
+cold-emailed [100-5000] people
+said no to a [$[100-900]K|$[1-10]M] deal
+hired someone with no experience
+deleted my MBA from my profile
+stopped going to meetings
+replaced my sales team with a Google Sheet
+moved to [Bali|Austin|Miami|Dubai]
+sold my house to buy Bitcoin
+woke up at 4 AM for [100-500] days straight
+fired a client because they didn't share my values
+automated my job using [AI|Python|No-Code]
+rejected a candidate because they asked about work-life balance
+took a 90% pay cut to work for free
+turned down [Google|Meta|Amazon|Apple]
+gave away my entire salary for a year
+ate only rice and beans for [3-18] months
+canceled all my subscriptions and invested the savings
+ghosted my entire network and started over
+
+$result
+[My|Our] revenue [doubled|tripled|went up [200-900]%]
+I gained [10-100]K followers
+[3-50] people DM'd me
+I got [2-12] job offers
+My inbox exploded
+I lost [5-30] friends
+My wife left me (worth it)
+I haven't slept in [3-14] days
+I retired at [28-35]
+Nothing happened but I kept going
+We went viral
+My imposter syndrome vanished
+I finally found my "why"
+I scaled to 7 figures in [2-6] weeks
+I got invited to speak at [TED|SXSW|Davos|YC Demo Day]
+[2-8] VCs reached out within [24|48] hours
+I wrote a book about it (link in bio)
+My team went from [2-5] to [30-200] people
+
+$lesson noun
+leadership
+vulnerability
+authenticity
+disruption
+personal branding
+hustle culture
+emotional intelligence
+thought leadership
+failing forward
+radical candor
+servant leadership
+growth mindset
+founder mode
+grit
+resilience
+leverage
+deep work
+flow state
+self-awareness
+bias for action
+first principles thinking
+
+$tech jargon
+AI
+blockchain
+web3
+metaverse
+ChatGPT
+digital transformation
+hyper-growth
+synergy
+low-code
+quantum computing
+generative AI
+SaaS
+B2B
+omnichannel
+agentic AI
+vibe coding
+
+$weird flex
+I take ice baths
+I wake up at 3:30 AM
+I fast for [16-48] hours
+I read [2-5] books a week
+I don't watch TV
+I drink bulletproof coffee
+I meditate for [1-4] hours
+I haven't taken a vacation in [2-10] years
+I run a marathon every Sunday
+I track my sleep with three different devices
+I network while I sleep
+I optimize my dopamine levels
+I journal for [30-90] minutes before sunrise
+I don't own a TV
+I block LinkedIn on weekends (just kidding)
+I deleted all social media except LinkedIn
+
+$bullet
+-
+*
+👉
+✅
+❌
+💡
+📍
+🧠
+
+$hot take
+Your [resume|degree|MBA|job title] is worthless.
+Nobody owes you [a job|success|engagement|a raise].
+The [9-5|corporate ladder|interview process|education system] is [broken|dead|a scam|a lie].
+Most [CEOs|founders|managers|leaders] are [afraid|lying|burnt out|winging it].
+If you're not [posting|networking|building|shipping] every day, you're falling behind.
+Unpopular opinion: [meetings|emails|standups|OKRs] are a waste of time.
+Stop [applying|interviewing|networking|hustling]. Start [building|shipping|creating|failing].
+Your [boss|company|industry] doesn't care about you.
+[LinkedIn|Twitter|The internet] changed my life. It can change yours too.
+You don't need [investors|a cofounder|experience|permission]. You need [courage|discipline|a laptop|WiFi].
+[Remote work|RTO|Hybrid work] is killing your [career|culture|soul].
+[Tech jargon] is the future. Adapt or die.
+Work-life balance is a myth for high performers.
+Quiet quitting is just another word for laziness.
+Soft skills are hard skills.
+Your manager is not your mentor.
+Networking isn't about collecting contacts. It's about planting seeds.
+If your LinkedIn bio doesn't scare you, it's too small.
+
+$cta
+Agree? [emoji]
+Repost if this resonated.
+Share this with someone who needs to hear it.
+Follow me for more.
+Thoughts? [emoji]
+Drop a [emoji] if you've been there.
+If this made you uncomfortable, good.
+Tag someone who needs a wake-up call.
+Comment "[YES|GROWTH|HUSTLE|GRIND]" and I'll send you my free [PDF|framework|playbook|template].
+Save this. You'll need it later.
+This post will be deleted in 24 hours.
+Link in bio.
+Check the comments for value.
+Let's connect.
+Repost [emoji] to help someone in your network.
+
+$hashtag word
+leadership
+growth
+mindset
+hustle
+startup
+founder
+hiring
+career
+motivation
+innovation
+disruption
+culture
+branding
+success
+fail
+entrepreneur
+ceo
+networking
+sales
+marketing
+ai
+future
+
+$hashtags
+#[hashtag word] #[hashtag word] #[hashtag word]
+
+$short sentence
+Do the work.
+Show up.
+Be kind.
+Stay humble.
+Keep grinding.
+Trust the process.
+Ignore the haters.
+Provide value.
+Build in public.
+Scale fast.
+Fail fast.
+Touch grass.
+Just ship it.
+No excuses.
+Start today.
+Stay hungry.
+Be relentless.
+
+// ---------------------------------------------------------------------------
+// PERSON CALLBACKS (using identifiers for coherent references)
+// ---------------------------------------------------------------------------
+
+$person opener
+[time,title], [person,#p] [said verb] that changed my life.[/][/][profound thing][/][/]I never forgot it. [emoji]
+A story about [lesson noun]:[/][/][time,title], I was [broke|lost|burned out|stuck in a cubicle|sleeping on a couch|crying in a parking lot].[/][/]Then [person,#p] [said verb]:[/][/][profound thing]
+[3-10] things I learned from [person,#p].
+
+$callback
+That [#p]? Now [runs a $[10-50]M company|is my cofounder|has [200-500]K followers|just IPO'd].
+I still think about what [#p] said. Every. Single. Day.
+[#p] probably doesn't even remember this. But it changed everything.
+I owe [#p] more than they'll ever know.
+
+// ---------------------------------------------------------------------------
+// JOB TITLES & PROFILE SIGNATURES
+// ---------------------------------------------------------------------------
+
+$job title
+[3-5]x Founder
+Ex-[Google|Meta|Amazon|McKinsey|Goldman|Deloitte]
+TEDx Speaker
+Serial Entrepreneur
+Angel Investor
+LinkedIn Top Voice
+Fractional [CMO|CTO|CFO|COO]
+[YC|Techstars|500 Startups] Alum
+Forbes [30|40] Under [30|40]
+Keynote Speaker
+Executive Coach
+[AI|SaaS|Web3|Climate] Enthusiast
+Podcast Host
+Best-Selling Author
+Advisor to [2-8] Startups
+Board Member
+Future Billionaire (Manifesting)
+
+$profile sig
+[/][/]—[/][job title] | [job title] | [job title]
+[/][/]—[/][job title] | [job title] | [weird flex]
+[/][/]—[/][job title] | Father of [2-5] | [weird flex]
+
+// ---------------------------------------------------------------------------
+// FAKE COMMENTS SECTION
+// ---------------------------------------------------------------------------
+
+$first name
+Dave
+Sarah
+Priya
+Marcus
+Aisha
+Tyler
+Raj
+Brittany
+Chen
+Olga
+Kevin
+Fatima
+
+$last name
+Johnson
+Patel
+Kim
+O'Brien
+Nakamura
+Smith
+Gupta
+Williams
+Zhang
+Mueller
+Santos
+Okafor
+
+$commenter name
+[first name] [last name]
+
+$comment body
+This. [emoji]
+Needed this today.
+Saving for later.
+Couldn't agree more.
+[emoji][emoji][emoji]
+So powerful. Reposted.
+This is why I follow you.
+You just described my entire career.
+Can I steal this for my next keynote?
+I literally just quit my job because of this post.
+[Person,title] told me the same thing once.
+Controversial but true.
+Where was this post [5-10] years ago?
+
+$comments section
+[/][/]---[/]💬 [commenter name]: [comment body][/]💬 [commenter name]: [comment body][/]💬 [commenter name]: [comment body]
+
+// ---------------------------------------------------------------------------
+// DAY STREAK POST
+// ---------------------------------------------------------------------------
+
+$day streak topic
+[posting on LinkedIn|building in public|cold outreach|learning [tech jargon]|rejecting comfort|saying no]
+
+// ---------------------------------------------------------------------------
+// EMPHASIS TEXT (using each for s p a c e d  o u t effect)
+// ---------------------------------------------------------------------------
+
+$spacer
+[_][ ]
+
+$emphasis
+[lesson noun,upper,each spacer]
+
+// ---------------------------------------------------------------------------
+// OPENERS
+// ---------------------------------------------------------------------------
+
+$opener
+[time,title], [person,#p] [said verb] that changed my life.[/][/][profound thing][/][/]I never forgot it. [emoji]
+I [job action].[/][/]Everyone said I was [crazy|stupid|reckless|done].[/][/][result]. [emoji]
+[hot take,title][/][/]I know. Controversial.[/][/]But hear me out. [emoji]
+A story about [lesson noun]:[/][/][time,title], I was [broke|lost|burned out|stuck in a cubicle|sleeping on a couch|crying in a parking lot].[/][/]Then [person,#p] [said verb]:[/][/][profound thing]
+Stop scrolling.[/][/]I need you to hear this. [emoji]
+Here is why I [job action].
+[3-10] things I learned from [person,#p].
+Unpopular opinion: [hot take]
+Most people get this wrong.
+Day [1-365] of [day streak topic].[/][/]Today's lesson:
+
+$middle line
+[hot take]
+[result]. And I'm just getting started.
+Here's what [most people|your boss|LinkedIn] won't tell you: [hot take,lower]
+The truth? [profound thing]
+Let that sink in.
+Read that again. [emoji]
+I'll say it louder for the people in the back: [hot take,lower]
+[Person,#p2] once [said verb]: [profound thing] I think about this every day.
+That's not a [failure|setback|mistake]. That's a lesson.
+[Lesson noun,title] isn't taught in school. It's learned in the [trenches|arena|DMs|comments section].
+It's not about [lesson noun]. It's about [lesson noun].
+We are not the same.
+The word for it? [emphasis]. {25%}
+
+$listicle item
+[#b] [hot take][/]
+[#b] [profound thing][/]
+[#b] [weird flex][/]
+[#b] [lesson noun] is everything[/]
+[#b] Don't be like [person][/]
+[#b] [short sentence][/]
+[#b] [tech jargon] changes everything[/]
+
+$listicle body
+[bullet,#b,hidden][listicle item][listicle item][listicle item][listicle item][listicle item]
+
+$staccato body
+[short sentence][/][short sentence][/][short sentence][/][short sentence][/][short sentence]
+
+// ---------------------------------------------------------------------------
+// ROOT: MAIN POST FORMATS
+// ---------------------------------------------------------------------------
+
+$>linkedin post
+[opener][/][/][middle line][/][/][middle line][/][/][cta][/][/][hashtags]
+[hot take,title][/][/][listicle body][/][middle line][/][/][cta]
+[short sentence][/][/][staccato body][/][/][profound thing][/][/][hashtags]
+[opener][/][/][bullet,#b] [hot take][/][#b] [hot take][/][#b] [hot take][/][/][middle line][/][/][cta]
+[opener][/][/][middle line][/][/][middle line][/][/][cta][profile sig]
+[opener][/][/][middle line][/][/][middle line][/][/][cta][comments section]
+Day [1-365] of [day streak topic].[/][/][short sentence][/][short sentence][/][short sentence][/][/][middle line][/][/][cta][/][/][hashtags]
+[opener][/][/][middle line][/][/][middle line][/][/][cta][profile sig][comments section]
+[person opener][/][/][middle line][/][/][callback][/][/][cta][/][/][hashtags]
+[person opener][/][/][middle line][/][/][callback][/][/][cta][profile sig]
