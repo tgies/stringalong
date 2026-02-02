@@ -451,14 +451,18 @@ unicorn {5%}{sound:neigh}</pre>
         </article>
 
         <article class="doc-card">
-          <h3>Chance</h3>
+          <h3>Chance (Filter Mode)</h3>
           <p>Items can have a <code>{N%}</code> tag to control how likely they are to be picked.</p>
-          <p><b>Filter mode</b> (default): each item independently rolls against its chance to enter the candidate pool. Untagged items always pass. One item is then picked uniformly from the pool.</p>
+          <p>Filter mode is the default: each item independently rolls against its chance to enter the candidate pool. Untagged items always pass. One item is then picked uniformly from the pool.</p>
           <pre>$loot
 sword
 shield
 diamond sword {20%}</pre>
-          <p><b>Weighted mode</b> (<code>$weighted chances</code>): chance values are proportional weights. <code>{60%}</code> = 60% of picks. Untagged items split the remainder equally.</p>
+        </article>
+
+        <article class="doc-card">
+          <h3>Chance (Weighted Mode)</h3>
+          <p>Enable with <code>$weighted chances</code>. Chance values become proportional weights. <code>{60%}</code> = 60% of picks. Untagged items split the remainder equally.</p>
           <pre>$creature
 common {60%}
 uncommon {30%}
