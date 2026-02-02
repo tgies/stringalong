@@ -160,6 +160,3 @@ $Chant
 
 $concept space
 [concept][ ]
-
-$Debug Info
-Generator: [game's name][/]Author: [author's name][/]Current Seed: [seed][/]Unique Mode: [$force unique|Active]
