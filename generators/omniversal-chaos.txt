@@ -1,0 +1,165 @@
+$name : Omniversal Chaos
+$author : Gemini 3 Pro Preview
+$description : A hyper-complex generator demonstrating every feature of the Stringalong engine. Generates artifacts from across the multiverse.
+$button : Materialize
+$amount : 1
+$allow duplicates
+
+// -----------------------------------------------------------------------------
+// CORE LISTS
+// -----------------------------------------------------------------------------
+
+$color
+obsidian
+crimson
+azure
+void-black
+nebula-white
+neon-green
+hyper-violet
+infra-red
+octarine {1%}
+
+$material
+[color] glass
+soul-forged steel
+crystallized [concept]
+petrified wood
+liquid mercury
+frozen time
+woven light
+bone
+living flesh
+
+$concept
+hope
+despair
+entropy
+order
+chaos
+silence
+scream
+memory
+regret
+
+// -----------------------------------------------------------------------------
+// ATTRIBUTED ITEMS
+// -----------------------------------------------------------------------------
+
+$power
+consume user's soul {danger:high}{type:curse}
+grant infinite wisdom {danger:low}{type:boon}
+rewrite history {danger:extreme}{type:reality}
+summon [a] [creature] {danger:medium}{type:summon}
+scream eternally {danger:annoying}{type:curse}
+
+$creature
+dragon {size:massive}
+hamster {size:tiny}
+void-whale {size:infinite}
+shadow-demon {size:variable}
+
+$artifact base
+Sword {slot:hand}{verb:slash}
+Shield {slot:hand}{verb:block}
+Amulet {slot:neck}{verb:glow}
+Ring {slot:finger}{verb:hum}
+Orb {slot:hand}{verb:pulsate}
+Cube {slot:pocket}{verb:rotate}
+
+// -----------------------------------------------------------------------------
+// TEMPLATES & FUNCTIONS
+// -----------------------------------------------------------------------------
+
+$desc template
+This [material] %1 %2s with [a] [concept] energy. It is known to %3.
+
+$serial part
+X
+Y
+Z
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A
+B
+C
+
+$generate serial
+[serial part,x4][-|.][serial part,x4][-|.][serial part,x4]
+
+// -----------------------------------------------------------------------------
+// GLITCH & TEXT PROCESSING
+// -----------------------------------------------------------------------------
+
+$glitch char
+.
+'
+;
+*
+?
+!
+
+$glitcher
+[_]
+[_]
+[_]
+[_][glitch char]
+
+$hybrid name
+[concept,first part][material,last part]
+[material,first part][concept,last part]
+[color,middle part][artifact base,middle part]
+
+// -----------------------------------------------------------------------------
+// MAIN GENERATORS
+// -----------------------------------------------------------------------------
+
+$>Artifact
+[setup][header][description][stats][footer]
+
+$setup
+[artifact base, #art, hidden][power, #pow, hidden][#art, as verb, #verb_text, written, hidden]
+
+$header
+<h2>[The [color,title] [#art]|The [#art] of [concept,title]]</h2>
+
+$description
+<p>[desc template, %[#art], %[#verb_text], %[#pow]]</p>
+
+$stats
+<ul><li><b>Slot:</b> [#art, as slot, or unknown]</li><li><b>Effect Type:</b> [#pow, as type, upper]</li><li><b>Danger Level:</b> [#pow, as danger, title]</li></ul>
+
+$footer
+[name section][warning][grammar check][value]
+
+$name section
+<p><i>True Name (Hybrid):</i> [hybrid name, title]</p><p><small>Serial ID: [generate serial, compress]</small></p>
+
+$warning
+<p class="error">WARNING: REALITY INSTABILITY DETECTED: [concept, upper, each glitcher]</p>
+
+$grammar check
+<p>Contains traces of [a] [creature, #c]. (Caution: [#c][s] may appear larger than they look.)</p>
+
+$value
+<p>Estimated Value: [1000-5000000] credits. (Checked [1-5] times)</p>[concept, #secret, hidden]
+
+$Chant
+// Demonstrating repetition and inline choice
+[concept, upper]! [concept, upper]! [concept, upper]!
+[concept space, x3, title]
+[concept]... [concept]... [concept]...
+
+$concept space
+[concept][ ]
+
+$Debug Info
+Generator: [game's name][/]Author: [author's name][/]Current Seed: [seed][/]Unique Mode: [$force unique|Active]
