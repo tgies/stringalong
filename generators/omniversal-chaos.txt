@@ -122,9 +122,6 @@ $hybrid name
 // MAIN GENERATORS
 // -----------------------------------------------------------------------------
 
-$>Artifact
-[setup][header][description][stats][footer]
-
 $setup
 [artifact base, #art, hidden][power, #pow, hidden][#art, as verb, #verb_text, written, hidden]
 
@@ -160,3 +157,7 @@ $Chant
 
 $concept space
 [concept][ ]
+
+$>Artifact
+[setup][header][description][stats][footer]
+
