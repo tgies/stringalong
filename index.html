@@ -593,7 +593,7 @@ cat[s]        → "cats"
     const $ = id => document.getElementById(id);
     const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
 
-    const SAFE_TAGS = new Set(['b', 'i', 'u', 'q', 'p', 'small', 'big', 'center', 'h1', 'h2', 'h3', 'br']);
+    const SAFE_TAGS = new Set(['b', 'i', 'u', 'q', 'p', 'small', 'big', 'center', 'h1', 'h2', 'h3', 'br', 'ul', 'ol', 'li']);
     function sanitize(str) {
       // Temporarily protect allowed tags, escape everything else, restore
       const ph = {};
