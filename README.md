@@ -41,7 +41,7 @@ Returns array of root list names (lists marked with `>` or all lists if `$all ro
 
 ### `gen.meta`
 
-Object with parsed metadata: `name`, `author`, `description`, `picture`, `button`, `amount`, `seedText`, `forceUnique`, `allRoots`, `includes`.
+Object with parsed metadata: `name`, `author`, `description`, `picture`, `button`, `amount`, `seedText`, `forceUnique`, `allRoots`, `weightedChances`, `includes`.
 
 ### `gen.parse(source)`
 
@@ -84,6 +84,7 @@ $seed text : Enter a name:
 $force unique       prevent duplicate picks (default)
 $allow duplicates   allow duplicate picks
 $all roots          expose all lists in root dropdown
+$weighted chances   use weighted chance model (see below)
 $include file.txt   prepend external file
 ```
 
@@ -112,7 +113,7 @@ dog {plural:dogs}{sound:woof}
 unicorn {5%}{sound:neigh}
 ```
 
-- `{50%}` — 50% chance of being included in the pick pool
+- `{50%}` — chance value (behavior depends on chance mode, see below)
 - `{key:value}` — named attribute, accessible via `as`
 
 ### Tags
@@ -228,6 +229,34 @@ $>output
 Each character has a 1-in-3 chance of getting a separator appended. Result: `HE_LLO` or `H/EL_LO`.
 
 Modifier order: casing and compress are applied at their natural points — casing before `each`, compress after.
+
+### Chance modes
+
+The `{N%}` tag on items has two modes:
+
+**Filter mode (default):** Each item independently rolls against its chance to enter the candidate pool, then one is picked uniformly from whoever passed. `{50%}` means 50% chance of being in the pool. Untagged items always pass. If nothing passes, the full list is used as a fallback. This matches [RandomGen](https://orteil.dashnet.org/randomgen/) behavior.
+
+```
+$loot
+sword
+shield
+diamond sword {20%}
+```
+
+The diamond sword has a 20% chance of being in the pool each time. When it makes it in, it competes equally with the others.
+
+**Weighted mode (`$weighted chances`):** Chance values are proportional weights. `{90%}` means the item occupies 90% of the picks. Untagged items split whatever remains equally. If explicit percentages exceed 100%, they are normalized proportionally.
+
+```
+$weighted chances
+
+$creature
+common {60%}
+uncommon {30%}
+rare {10%}
+```
+
+`common` appears ~60% of the time, `uncommon` ~30%, `rare` ~10%.
 
 ### Smart grammar
 

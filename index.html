@@ -417,10 +417,11 @@ $seed text : Enter a name:</pre>
         <article class="doc-card">
           <h3>Directives</h3>
           <p>Special commands:</p>
-          <pre>$force unique     prevent repeats
-$allow duplicates allow repeats
-$all roots        all lists in dropdown
-$include file.txt load external file</pre>
+          <pre>$force unique      prevent repeats
+$allow duplicates  allow repeats
+$all roots         all lists in dropdown
+$weighted chances  weighted chance model
+$include file.txt  load external file</pre>
           <p>Comments: <code>//</code> line, <code>/* block */</code>, <code>$[note]</code></p>
         </article>
 
@@ -445,9 +446,23 @@ cat {plural:cats}{sound:meow}
 dog {plural:dogs}{sound:woof}
 unicorn {5%}{sound:neigh}</pre>
           <ul>
-            <li><code>{50%}</code> — 50% chance weight</li>
             <li><code>{key:value}</code> — named attribute</li>
           </ul>
+        </article>
+
+        <article class="doc-card">
+          <h3>Chance</h3>
+          <p>Items can have a <code>{N%}</code> tag to control how likely they are to be picked.</p>
+          <p><b>Filter mode</b> (default): each item independently rolls against its chance to enter the candidate pool. Untagged items always pass. One item is then picked uniformly from the pool.</p>
+          <pre>$loot
+sword
+shield
+diamond sword {20%}</pre>
+          <p><b>Weighted mode</b> (<code>$weighted chances</code>): chance values are proportional weights. <code>{60%}</code> = 60% of picks. Untagged items split the remainder equally.</p>
+          <pre>$creature
+common {60%}
+uncommon {30%}
+rare {10%}</pre>
         </article>
 
         <article class="doc-card">
