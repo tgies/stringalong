@@ -195,6 +195,7 @@ Modifiers are comma-separated after the tag name: `[tag,modifier,modifier]`.
 ```
 [word,compress]      remove all spaces
 [word,hidden]        evaluate but output nothing
+[word,bare]          strip leading determiner (a, an, the, my, your, his, her, etc.)
 [word,first part]    first third of text
 [word,middle part]   middle third
 [word,last part]     last third
@@ -277,6 +278,23 @@ cat[s]          → "cats"
 ```
 
 `[s]` pluralizes the preceding word using English pluralization rules (handles irregulars, Latin forms, etc.).
+
+#### Bare nouns
+
+The `bare` modifier strips leading determiners (articles, possessives, demonstratives) from text. Useful for backreferences where the first mention needs "a monk" but later mentions need just "monk":
+
+```
+$person
+a stranger
+my Uber driver
+Gary Vee
+
+$>output
+[person,#p] told me something.     → "a stranger told me something."
+That [#p,bare]? A genius.          → "That stranger? A genius."
+```
+
+Recognized determiners: a, an, the, my, your, his, her, its, our, their, this, that, these, those.
 
 ### Template parameters
 

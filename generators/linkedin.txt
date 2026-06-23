@@ -320,10 +320,10 @@ A story about [lesson noun]:[/][/][time,title], I was [broke|lost|burned out|stu
 [3-10] things I learned from [person,#p].
 
 $callback
-That [#p]? Now [runs a $[10-50]M company|is my cofounder|has [200-500]K followers|just IPO'd].
-I still think about what [#p] said. Every. Single. Day.
-[#p] probably doesn't even remember this. But it changed everything.
-I owe [#p] more than they'll ever know.
+That [#p,bare]? Now [runs a $[10-50]M company|is my cofounder|has [200-500]K followers|just IPO'd].
+I still think about what that [#p,bare] said. Every. Single. Day.
+That [#p,bare] probably doesn't even remember this. But it changed everything.
+I owe that [#p,bare] more than they'll ever know.
 
 // ---------------------------------------------------------------------------
 // JOB TITLES & PROFILE SIGNATURES
