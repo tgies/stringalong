@@ -3,3 +3,7 @@ node_modules/
 Thumbs.db
 *.log
 generators/index.json
+types/
+coverage/
+*.tgz
+_site/

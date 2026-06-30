@@ -1,0 +1,195 @@
+$name : Spam Email (with Bayesian Poisoning)
+$author : Gemini
+$description : Generates simulated spam emails featuring typical marketing/phishing hooks, coupled with randomized "Bayesian poisoning" nonsense blocks generated via MegaHAL to bypass filters.
+$button : Generate Spam
+$amount : 1
+
+// -----------------------------------------------------------------------------
+// MEGAHAL POISON CORPUS
+// -----------------------------------------------------------------------------
+// This list is trained using MegaHAL with a Markov chain order of 4.
+// It will generate slightly grammatically cohesive but nonsensical sentences.
+$poison_corpus {megahal:4}
+Alice was beginning to get very tired of sitting by her sister on the bank.
+Once upon a time there was a beautiful princess who lived in a castle.
+A journey of a thousand miles begins with a single step.
+In the beginning God created the heaven and the earth.
+It was the best of times, it was the worst of times.
+Call me Ishmael.
+It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
+All human beings are born free and equal in dignity and rights.
+The only thing we have to fear is fear itself.
+Elementary, my dear Watson.
+I think, therefore I am.
+The ocean is a mighty harmonist.
+Time flies like an arrow, but fruit flies like a banana.
+There is nothing either good or bad, but thinking makes it so.
+Nature does nothing uselessly.
+To sleep, perchance to dream.
+The secret of getting ahead is getting started.
+Wisdom begins in wonder.
+Life is what happens when you're busy making other plans.
+The only true wisdom is in knowing you know nothing.
+Speak softly and carry a big stick.
+The purpose of our lives is to be happy.
+All that glitters is not gold.
+A person who never made a mistake never tried anything new.
+You must be the change you wish to see in the world.
+In three words I can sum up everything I've learned about life: it goes on.
+Be yourself; everyone else is already taken.
+No one can make you feel inferior without your consent.
+We accept the love we think we deserve.
+
+// -----------------------------------------------------------------------------
+// SENDER & SUBJECT COMPONENTS
+// -----------------------------------------------------------------------------
+
+$fake_first
+John
+Alice
+Robert
+Emily
+Michael
+Sarah
+David
+Jessica
+James
+Sophia
+William
+Olivia
+
+$fake_last
+Smith
+Johnson
+Williams
+Brown
+Jones
+Miller
+Davis
+Garcia
+Rodriguez
+Wilson
+
+$fake_domain
+secure-mail
+update-portal
+refinance-direct
+rewards-central
+rx-deals
+bank-alert
+
+$tld
+com
+net
+org
+biz
+info
+xyz
+
+$spam_subject
+URGENT: Your account has been [alert]!
+Get [meds] [med_adjective] - [percent]% off today!
+Refinance your mortgage starting at [rate]% APR
+[congrats]! You have been selected for a $[amount_money] gift card!
+Make $[income] per day working from home
+Is this your profile photo? [alert]
+
+$alert
+suspended
+locked
+flagged
+compromised
+disabled
+
+$meds
+medication
+prescriptions
+Vigora
+Cialis
+tablets
+
+$med_adjective
+discreetly
+without prescription
+online
+cheaply
+
+$percent
+50
+70
+85
+90
+
+$rate
+1.9
+2.5
+3.2
+4.0
+
+$congrats
+Congratulations
+Winner
+Notice
+
+$amount_money
+500
+1000
+5000
+10000
+
+$income
+250
+500
+1000
+2000
+
+// -----------------------------------------------------------------------------
+// EMAIL BODY SCHEMES
+// -----------------------------------------------------------------------------
+
+$salutation
+Dear Customer,
+ATTENTION:
+Valued User,
+Hello,
+To whom it may concern,
+
+$hook
+We detected suspicious login activity on your account from [country]. To prevent permanent locking, you must verify your credentials.
+You have been chosen to receive an exclusive promotional grant. This offer is only valid for the next 24 hours.
+Save up to 80% on all FDA-approved wellness products. Fast worldwide shipping, no doctor consultation required.
+We are pleased to inform you that your loan application has pre-qualified for our lowest interest rate in a decade.
+
+$country
+Russia
+China
+North Korea
+Brazil
+Germany
+Nigeria
+
+$action_url
+http://verify-[fake_domain].[tld]/login
+http://claim-[fake_domain].[tld]/reward
+http://shop-[fake_domain].[tld]/rx
+http://apply-[fake_domain].[tld]/refi
+
+$call_to_action
+Click here to access your account immediately: [action_url]
+Please click the link below to claim your rewards before they expire: [action_url]
+Browse our complete catalog online: [action_url]
+Complete your application form by visiting: [action_url]
+
+$sign_off
+Best regards,
+The Security Team
+Customer Support Department
+Accounts Representative
+Dispatch Center
+
+// -----------------------------------------------------------------------------
+// MAIN OUTPUT TEMPLATE
+// -----------------------------------------------------------------------------
+
+$>output
+From: [fake_first] [fake_last] <[fake_first,lower].[fake_last,lower]@[fake_domain].[tld]>[/]Subject: [spam_subject] (re: [poison_corpus])[/][/]------------------------------------------------------------------------------[/][salutation][/][hook][/][call_to_action][/][sign_off][/]------------------------------------------------------------------------------[/]Note: This is the Bayesian Poison block appended to confuse old word-filtering spam engines:[/][poison_corpus] [poison_corpus] [poison_corpus]

@@ -4,11 +4,173 @@ Grammar-based random text generator — based on [Orteil's RandomGen](https://or
 
 **[Try it out](https://tgies.github.io/stringalong)**
 
+## Installation & Integration
+
+`stringalong` can be installed via package managers, loaded dynamically from CDNs, or vendored locally without dependencies.
+
+### 1. Node.js (NPM)
+Install the package:
+```bash
+npm install stringalong
+```
+
+#### ES Modules (ESM)
+```javascript
+import Stringalong from 'stringalong';
+```
+
+#### CommonJS (CJS)
+```javascript
+const Stringalong = require('stringalong');
+```
+
+> [!NOTE]
+> Direct CommonJS imports load the raw UMD file where `MegaHal` is not auto-registered. If you want to use MegaHAL lists, manually register the engine beforehand:
+> ```javascript
+> const Stringalong = require('stringalong');
+> const { MegaHal } = require('megahal');
+> Stringalong.MegaHal = MegaHal;
+> ```
+
+---
+
+### 2. Browser Integration (For Neocities, Tumblr, or HTML Pages)
+
+If you're building a personal website and want a fun button that generates random text (like fortunes, outfits, names, or items), here is a complete copy-pasteable guide to get you up and running in minutes!
+
+#### Quick Start Tutorial
+Before hosting your own, you can interactively test and preview any custom generator grammar by pasting it directly into the online playground at **[tgies.github.io/stringalong](https://tgies.github.io/stringalong)**.
+
+To write your own local copy, create a new file on your site (e.g., `generator.html`) and paste this code inside:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Random Generator</title>
+  
+  <!-- Load the stringalong script from a CDN! -->
+  <script src="https://cdn.jsdelivr.net/npm/stringalong/lib/stringalong.js"></script>
+  
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #result {
+      font-size: 20px;
+      margin: 20px 0;
+      min-height: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔮 Magic Fortune Teller</h1>
+  
+  <!-- This is where the generated text will appear -->
+  <div id="result">Click the button to see your future...</div>
+  
+  <!-- Clicking this button runs the roll() function below -->
+  <button onclick="roll()">Roll Fortune</button>
+
+  <script>
+    // 1. Write your lists and template here!
+    // - $name defines a new list of items.
+    // - [name] picks a random item from that list.
+    // - $>output is the template that puts it all together!
+    const grammar = `
+$outlook
+good
+bad
+weird
+spooky
+
+$fortune
+you will find a shiny quarter
+a black cat will wink at you
+you will stub your toe on a marshmallow
+you will accidentally summon a minor demon
+an old friend will send you a funny meme
+
+$>output
+Your outlook is [outlook], and [fortune].
+    `;
+
+    // 2. Load the grammar into stringalong
+    const gen = new Stringalong(grammar);
+
+    // 3. Make the button do the magic!
+    function roll() {
+      // Generate one output
+      const outputs = gen.generate();
+      
+      // Put it on the page
+      document.getElementById('result').innerText = outputs[0];
+    }
+    
+    // Roll once automatically when the page loads!
+    roll();
+  </script>
+
+</body>
+</html>
+```
+
+#### How it works:
+1. **Create a list**: Start a line with `$` followed by the name of the list. Every line below it becomes an item in that list, until you start a new list.
+   ```text
+   $color
+   pink
+   neon green
+   glittery blue
+   ```
+2. **Use a list**: Put the list name in square brackets `[color]` to pick a random item from it.
+   ```text
+   $clothing
+   shirt
+   socks
+   hat
+   
+   $>output
+   You should wear a [color] [clothing] today!
+   ```
+3. **The Output**: The special list `$>output` (with a `>` arrow) is the main template that gets printed when you generate.
+
+#### Advanced CDN Options
+If you are comfortable with ESM (ES Modules), you can import `stringalong` directly in a `<script type="module">`:
+
+```html
+<script type="module">
+  import Stringalong from 'https://esm.sh/stringalong';
+  
+  const gen = new Stringalong('$phrase\nhello\n$output >\n[phrase]');
+  console.log(gen.generate());
+</script>
+```
+
+---
+
+### 3. Local Vendoring (Zero Dependencies)
+
+If you don't want to rely on any CDNs, you can download the script directly and host it on your own site.
+
+1. Download the file [lib/stringalong.js](https://raw.githubusercontent.com/tgies/stringalong/main/lib/stringalong.js).
+2. Save it to your website folder (for example, in a `js/` folder next to your HTML file).
+3. Include it in your HTML:
+```html
+<script src="js/stringalong.js"></script>
+<script>
+  const gen = new Stringalong('$phrase\nhello\n$output >\n[phrase]');
+  console.log(gen.generate());
+</script>
+```
+
+---
+
 ## JavaScript API
-
-### Installation
-
-Include `lib/stringalong.js` via script tag, `require()`, or `import`. It exports a single `Stringalong` class (UMD).
 
 ### `new Stringalong(source, opts?)`
 
@@ -51,6 +213,79 @@ Parse additional source text into the same instance (for appending lists).
 
 - `Stringalong.pluralize(word)` — pluralize a word
 - `Stringalong.seedRng(seed)` — create a seeded PRNG function
+
+---
+
+## CLI
+
+`stringalong` includes a command-line interface for generating text directly from the terminal:
+
+### Usage
+```bash
+stringalong [file] [options]
+```
+
+If the file argument is omitted or set to `-`, the grammar is read from standard input (`stdin`).
+
+### Options
+- `-c, --count <number>`    Number of strings to generate (defaults to `$amount` setting, fallback to 1)
+- `-s, --seed <string>`     Seed for deterministic random generation (Mulberry32)
+- `-r, --root <name>`       Root list to generate from (defaults to the default root list)
+- `-v, --version`           Print package version
+- `-h, --help`              Display help guidelines
+
+### Examples
+Generate 5 items from `grammar.txt` with a seed:
+```bash
+stringalong grammar.txt --count 5 --seed "my seed"
+```
+
+Pipe grammar into `stringalong`:
+```bash
+cat grammar.txt | stringalong -c 3
+```
+
+---
+
+## MegaHAL List Integration
+
+Stringalong integrates `megahal` to generate Markov-chain utterances from list lines instead of picking a single line.
+
+If `megahal` is available, any list declared with the `{megahal}` or `{megahal:order}` attribute will build a MegaHAL brain trained on the items of that list. When the list is referenced (e.g. `[listname]`), stringalong will generate a MegaHAL utterance instead of picking a line.
+
+### Syntax
+- `$listname {megahal}` — train MegaHAL with default order 5
+- `$listname {megahal:N}` — train MegaHAL with custom Markov order `N`
+
+```text
+$chatbot {megahal:4}
+Hello there!
+The cat sat on the mat.
+The dog chased the cat.
+
+$output >
+Chatbot says: "[chatbot]"
+```
+
+### Integration & Registration
+
+If using ES modules or modern bundlers (`import Stringalong from 'stringalong'`), MegaHAL is automatically imported and registered for you. For other environments:
+
+#### 1. CommonJS (Node.js)
+```javascript
+const Stringalong = require('stringalong');
+const { MegaHal } = require('megahal');
+Stringalong.MegaHal = MegaHal;
+```
+
+#### 2. Browser script tags
+```html
+<script type="module">
+  import { MegaHal } from 'https://esm.sh/megahal@1.0.1';
+  window.MegaHal = MegaHal; // auto-detected by stringalong.js
+</script>
+<script src="js/stringalong.js"></script>
+```
 
 ---
 
@@ -101,6 +336,7 @@ green
 
 - `$>listname` or `$listname >` — mark as root (appears in output dropdown)
 - `$+listname` — append items to an existing list
+- `$listname {key:value}` — set list-level attributes (e.g. `{megahal:5}` to use MegaHAL)
 
 ### Item attributes
 
@@ -152,6 +388,8 @@ Case of the tag name is detected and applied to the output.
 [game's name]   $name value
 [author's name] $author value
 [*CLEAR*]       clear all stored identifiers
+[*DEBUG ON*]    no-op (RandomGen compatibility)
+[*DEBUG OFF*]   no-op (RandomGen compatibility)
 ```
 
 ### Tag modifiers
@@ -235,7 +473,7 @@ Modifier order: casing and compress are applied at their natural points — casi
 
 The `{N%}` tag on items has two modes:
 
-**Filter mode (default):** Each item independently rolls against its chance to enter the candidate pool, then one is picked uniformly from whoever passed. `{50%}` means 50% chance of being in the pool. Untagged items always pass. If nothing passes, the full list is used as a fallback. This matches [RandomGen](https://orteil.dashnet.org/randomgen/) behavior.
+**Filter mode (default):** Each item independently rolls against its chance to enter the candidate pool, then one is picked uniformly from whichever passed. `{50%}` means 50% chance of being in the pool. Untagged items always pass. If nothing passes, the full list is used as a fallback. This matches [RandomGen](https://orteil.dashnet.org/randomgen/) behavior.
 
 ```
 $loot

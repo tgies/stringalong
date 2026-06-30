@@ -531,7 +531,9 @@ rare {10%}</pre>
 [word, middle part]  middle third
 [word, last part]    last third
 [word, compress]     remove spaces
-[word, hidden]       evaluate, output ""</pre>
+[word, hidden]       evaluate, output ""
+[word, bare]         strip leading determiner</pre>
+          <p><code>bare</code> strips: a, an, the, my, your, his, her, its, our, their, this, that, these, those.</p>
         </article>
 
         <article class="doc-card">
@@ -586,7 +588,22 @@ cat[s]        → "cats"
           <p>Built-in meta references:</p>
           <pre>[seed]          current seed value
 [game's name]   $name value
-[author's name] $author value</pre>
+[author's name] $author value
+[*CLEAR*]       clear all stored IDs
+[*DEBUG ON*]    no-op (RandomGen compat)
+[*DEBUG OFF*]   no-op (RandomGen compat)</pre>
+        </article>
+
+        <article class="doc-card">
+          <h3>MegaHAL Lists</h3>
+          <p>Lists with the <code>{megahal}</code> attribute generate Markov-chain utterances instead of picking a single line. Requires <code>megahal</code> to be loaded.</p>
+          <pre>$chatbot {megahal}
+Hello there!
+The cat sat on the mat.
+The dog chased the cat.
+
+$chatbot {megahal:4}  // custom order</pre>
+          <p>Falls back to normal picking if MegaHAL is not available.</p>
         </article>
       </div>
     </section>

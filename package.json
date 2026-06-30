@@ -1,0 +1,85 @@
+{
+  "name": "stringalong",
+  "version": "1.0.0",
+  "description": "Grammar-based random text generator based on Orteil's RandomGen",
+  "homepage": "https://github.com/tgies/stringalong",
+  "bugs": {
+    "url": "https://github.com/tgies/stringalong/issues"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./index.js"
+      },
+      "require": {
+        "types": "./types/lib/stringalong.d.cts",
+        "default": "./lib/stringalong.js"
+      }
+    }
+  },
+  "types": "./types/index.d.ts",
+  "bin": {
+    "stringalong": "./bin/cli.js"
+  },
+  "engines": {
+    "node": ">= 20"
+  },
+  "files": [
+    "lib/**/*",
+    "index.js",
+    "types/**/*",
+    "bin/cli.js",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build:types": "tsc --declaration --emitDeclarationOnly --noEmit false && node -e \"const fs = require('fs'); fs.copyFileSync('types/lib/stringalong.d.ts', 'types/lib/stringalong.d.cts')\"",
+    "check": "npm run lint && npm run typecheck && npm run test:coverage",
+    "prepare": "husky",
+    "prepack": "npm run build:types"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgies/stringalong.git"
+  },
+  "keywords": [
+    "random",
+    "generator",
+    "grammar",
+    "text",
+    "randomgen",
+    "megahal"
+  ],
+  "author": "Tony Gies <tgies@tgies.net>",
+  "license": "MIT",
+  "dependencies": {
+    "megahal": "^1.0.1"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.0.1",
+    "@vitest/coverage-v8": "^4.1.6",
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "publint": "^0.3.5",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.6"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  }
+}
