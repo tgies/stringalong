@@ -39,6 +39,44 @@ In three words I can sum up everything I've learned about life: it goes on.
 Be yourself; everyone else is already taken.
 No one can make you feel inferior without your consent.
 We accept the love we think we deserve.
+The quick brown fox jumps over the lazy dog near the riverbank.
+Every good boy deserves fudge and a warm blanket on a cold evening.
+She sells seashells by the seashore where the tide comes in at dawn.
+The rain in Spain falls mainly on the plain during the autumn months.
+Four score and seven years ago our fathers brought forth on this continent a new nation.
+Now is the winter of our discontent made glorious summer by this sun of York.
+Whether tis nobler in the mind to suffer the slings and arrows of outrageous fortune.
+Happy families are all alike but every unhappy family is unhappy in its own way.
+It was a bright cold day in April and the clocks were striking thirteen.
+The ships hung in the sky in much the same way that bricks do not.
+Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy.
+In a hole in the ground there lived a hobbit, not a nasty dirty wet hole.
+The sky above the port was the color of television tuned to a dead channel.
+Many years later, as he faced the firing squad, Colonel Aureliano Buendia was to remember that distant afternoon.
+Someone must have slandered Josef K, for one morning without having done anything wrong he was arrested.
+All happy families resemble one another but each unhappy family is unhappy in its own way.
+Midway upon the journey of our life I found myself within a forest dark for the straightforward pathway had been lost.
+The garden was large and beautiful and had soft green grass growing in it.
+We hold these truths to be self evident that all men are created equal.
+The fundamental things apply as time goes by in a world full of ordinary miracles.
+Early to bed and early to rise makes a man healthy wealthy and wise.
+A stitch in time saves nine but an ounce of prevention is worth a pound of cure.
+The cat sat on the mat and watched the birds through the window with great interest.
+Knowledge is power and power is the ability to change the world around you.
+Music is the universal language of mankind that speaks to every heart and soul.
+The greatest glory in living lies not in never falling but in rising every time we fall.
+Fortune favors the bold and adventure awaits those who dare to seek it out.
+There is no greater agony than bearing an untold story inside you waiting to be shared.
+The world is a book and those who do not travel read only one page of it.
+An investment in knowledge pays the best interest over the course of a lifetime.
+Stay hungry stay foolish and never let the fear of striking out keep you from playing the game.
+Tell me and I forget, teach me and I may remember, involve me and I learn something truly.
+The best time to plant a tree was twenty years ago and the second best time is now.
+Do not go where the path may lead but go instead where there is no path and leave a trail.
+Two things are infinite, the universe and human stupidity, and I am not sure about the universe.
+Yesterday is history, tomorrow is a mystery, but today is a gift, and that is why it is called the present.
+The real voyage of discovery consists not in seeking new landscapes but in having new eyes to see.
+Success is not final, failure is not fatal, it is the courage to continue that counts in the end.
 
 // -----------------------------------------------------------------------------
 // SENDER & SUBJECT COMPONENTS
@@ -192,4 +230,4 @@ Dispatch Center
 // -----------------------------------------------------------------------------
 
 $>output
-From: [fake_first] [fake_last] <[fake_first,lower].[fake_last,lower]@[fake_domain].[tld]>[/]Subject: [spam_subject] (re: [poison_corpus])[/][/]------------------------------------------------------------------------------[/][salutation][/][hook][/][call_to_action][/][sign_off][/]------------------------------------------------------------------------------[/]Note: This is the Bayesian Poison block appended to confuse old word-filtering spam engines:[/][poison_corpus] [poison_corpus] [poison_corpus]
+From: [fake_first] [fake_last] <[fake_first,lower].[fake_last,lower]@[fake_domain].[tld]>[/]Subject: [spam_subject] (re: [poison_corpus])[/][/]------------------------------------------------------------------------------[/][salutation][/][hook][/][call_to_action][/][sign_off][/]------------------------------------------------------------------------------[/][poison_corpus] [poison_corpus] [poison_corpus]
