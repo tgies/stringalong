@@ -34,7 +34,7 @@ const Stringalong = require('stringalong');
 
 ---
 
-### 2. Browser Integration (For Neocities, Tumblr, or HTML Pages)
+### 2. Browser Integration (For Plain HTML Pages)
 
 If you're building a personal website and want a fun button that generates random text (like fortunes, outfits, names, or items), here is a complete copy-pasteable guide to get you up and running in minutes!
 
