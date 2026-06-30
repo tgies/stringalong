@@ -139,6 +139,120 @@ Your outlook is [outlook], and [fortune].
    ```
 3. **The Output**: The special list `$>output` (with a `>` arrow) is the main template that gets printed when you generate.
 
+#### Example: Seeded Name Generator
+
+Want a generator where the user types their name and always gets the same result? Use `$seed text` to add a text input, and the entered text becomes the random seed:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quack Scientist Name Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/stringalong/lib/stringalong.js"></script>
+  <style>
+    body { font-family: monospace; text-align: center; padding-top: 50px; }
+    #result { font-size: 20px; margin: 20px 0; min-height: 1.5em; }
+    input { font: inherit; padding: 6px 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>🧪 Victorian Quack Scientist Name</h1>
+
+  <p>Enter your name: <input type="text" id="nameInput" placeholder="e.g. Alice"></p>
+  <div id="result"></div>
+
+  <script>
+    const grammar = `
+$seed text : Enter your name:
+
+$honorific
+Dr.
+Prof.
+Sir
+Lady
+Baron
+Baroness
+Rev. Dr.
+
+$first
+Cornelius
+Barnaby
+Thaddeus
+Percival
+Ignatius
+Phineas
+Theodora
+Millicent
+Henrietta
+Evangeline
+
+$prefix
+Throt
+Bumble
+Crank
+Fizzle
+Wobble
+Grim
+Snod
+Crump
+Bloat
+Quib
+
+$suffix
+bottom
+worth
+whistle
+shaft
+thorpe
+hammer
+brass
+wort
+stone
+splint
+
+$field
+Phrenological
+Galvanic
+Pneumatic
+Phantasmagorical
+Etheric
+Mesmeric
+Magneto-Electric
+
+$specialty
+Trepanation
+Leech Husbandry
+Phlogiston Extraction
+Ectoplasm Distillation
+Aura Polishing
+Tonic Brewing
+Corpse Reanimation
+
+$>output
+[honorific] [first] [prefix][suffix], Fellow of the Royal Society for [field] [specialty].
+    `;
+
+    const gen = new Stringalong(grammar);
+
+    document.getElementById('nameInput').addEventListener('input', function() {
+      const name = this.value.trim();
+      if (!name) {
+        document.getElementById('result').innerText = '';
+        return;
+      }
+      const outputs = gen.generate({ seed: name });
+      document.getElementById('result').innerText = outputs[0];
+    });
+  </script>
+
+</body>
+</html>
+```
+
+The same name always produces the same scientist. Try it: "Alice" will always be the same quack, and so will "Bob."
+
 #### Advanced CDN Options
 If you are comfortable with ESM (ES Modules), you can import `stringalong` directly in a `<script type="module">`:
 

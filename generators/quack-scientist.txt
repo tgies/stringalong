@@ -1,0 +1,169 @@
+$name : Victorian Quack Scientist
+$author : Stringalong
+$description : Enter your name and discover the illustrious title of your Victorian-era quack scientist alter ego.
+$button : Reveal My Title
+$seed text : Enter your name:
+
+$honorific
+Dr.
+Prof.
+Sir
+Lady
+Baron
+Baroness
+Rev. Dr.
+The Rt. Hon. Dr.
+Viscount
+Viscountess
+Col. Dr.
+
+$first name
+Cornelius
+Reginald
+Barnaby
+Thaddeus
+Percival
+Aloysius
+Bartholomew
+Cornelius
+Horatio
+Ignatius
+Montague
+Phineas
+Septimus
+Beauregard
+Archibald
+Theodora
+Prudence
+Millicent
+Gertrude
+Henrietta
+Cordelia
+Evangeline
+Octavia
+Wilhelmina
+Hortense
+Euphemia
+Beatrix
+Clementine
+Mildred
+Agatha
+
+$surname prefix
+Throt
+Bumble
+Crank
+Fizzle
+Wobble
+Sput
+Grim
+Snod
+Crump
+Bloat
+Flam
+Quib
+Snork
+Drib
+Blather
+Pump
+Cog
+Ratch
+Spleen
+Blund
+
+$surname suffix
+bottom
+worth
+whistle
+shaft
+wick
+thorpe
+hammer
+tongs
+brass
+wort
+stone
+gust
+ford
+snatch
+bane
+waite
+by
+mire
+ditch
+splint
+
+$field
+Phrenological
+Galvanic
+Pneumatic
+Phantasmagorical
+Etheric
+Alchemical
+Miasmatic
+Mesmeric
+Vibrational
+Magneto-Electric
+Spectro-Astral
+Theosophical
+Cranio-Hydraulic
+Voltaic
+Organo-Spiritual
+Electo-Botanical
+Psycho-Mechanical
+Humouric
+Corpuscular
+Lumino-Gastric
+
+$specialty
+Trepanation
+Leech Husbandry
+Phlogiston Extraction
+Ectoplasm Distillation
+Bile Recalibration
+Aura Polishing
+Skull Reading
+Tonic Brewing
+Vapour Therapy
+Corpse Reanimation
+Spirit Telegraphy
+Blood Letting
+Homunculus Cultivation
+Mercury Bathing
+Radium Therapy
+Séance Engineering
+Hysteria Treatment
+Laudanum Mixology
+
+$institution
+the Royal Society for [field] Inquiry
+the Imperial College of [specialty]
+the Worshipful Guild of [field] Practitioners
+the Grand Lodge of Applied [specialty]
+the Royal [field] Institute of [place]
+the [place] Academy of [field] Sciences
+the Honourable Order of [field] [specialty]
+
+$place
+Upper Throckmorton
+Lower Puddlebury
+West Grimsby-on-Splurt
+Dampshire
+Greater Wobbleford
+North Bogsworth
+Lesser Cankleton
+Blistering-upon-Thwack
+Mouldering-by-the-Marsh
+East Phlegmington
+
+$credential
+Fellow of [institution]
+Disgraced Former Chair of [institution]
+Twice-Expelled Member of [institution]
+Unlicensed Laureate of [institution]
+Self-Appointed Dean of [institution]
+Probationary Fellow of [institution]
+Founding Crank of [institution]
+
+$>output
+[honorific] [first name] [surname prefix][surname suffix], [credential].
