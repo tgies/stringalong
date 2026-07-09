@@ -40,7 +40,8 @@ export default [
     ignores: [
       'node_modules/**',
       'coverage/**',
-      'reports/**'
+      'reports/**',
+      'lib/stringalong.bundle.js'
     ]
   }
 ];

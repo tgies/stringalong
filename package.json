@@ -43,6 +43,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build:types": "tsc --declaration --emitDeclarationOnly --noEmit false && node -e \"const fs = require('fs'); fs.copyFileSync('types/lib/stringalong.d.ts', 'types/lib/stringalong.d.cts')\"",
+    "build:browser": "esbuild lib/browser.js --bundle --outfile=lib/stringalong.bundle.js --external:node:fs/promises",
     "check": "npm run lint && npm run typecheck && npm run test:coverage",
     "prepare": "husky",
     "prepack": "npm run build:types"
@@ -71,6 +72,7 @@
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.0.1",
     "@vitest/coverage-v8": "^4.1.6",
+    "esbuild": "^0.28.1",
     "eslint": "^10.0.3",
     "globals": "^17.4.0",
     "husky": "^9.1.7",

@@ -20,6 +20,16 @@ jobs:
         with:
           persist-credentials: false
 
+      - uses: actions/setup-node@49933ea5288caeca8642195f2ed94f21bf2f2e36 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build browser bundle
+        run: npm run build:browser
+
       - name: Generate generators index
         run: |
           cd generators
@@ -41,7 +51,7 @@ jobs:
         run: |
           mkdir -p _site/lib _site/generators
           cp index.html _site/
-          cp lib/stringalong.js _site/lib/
+          cp lib/stringalong.bundle.js _site/lib/
           cp generators/*.txt generators/index.json _site/generators/
 
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0

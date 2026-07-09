@@ -7,3 +7,4 @@ types/
 coverage/
 *.tgz
 _site/
+lib/stringalong.bundle.js
